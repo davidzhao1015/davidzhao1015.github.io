@@ -2,7 +2,7 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      {% if page.permalink != '/' %}
+      {% if page.permalink != '/'%}
         <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
           {% if site.title == 'blank' %}
             {% if site.first_name %}
@@ -21,6 +21,16 @@
           {% endif %}
         </a>
       {% elsif site.enable_navbar_social %}
+
+       {% assign excluded_pages = site.excluded_pages %}
+      {% for page in site.pages %}
+        {% unless excluded_pages contains page.url %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ page.url | relative_url }}">{{ page.title }}</a>
+          </li>
+        {% endunless %}
+      {% endfor %}
+      
         <!-- Social Icons -->
         <div class="navbar-brand social">{% include social.liquid %}</div>
       {% endif %}
