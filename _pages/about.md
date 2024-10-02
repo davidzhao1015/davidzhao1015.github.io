@@ -18,7 +18,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a bioinformatician with PdD in microbiology. 
+I am a bioinformatician with PhD in microbiology. 
 
 I help biologists make scientific discoveries more accurately and efficiently. 
 
