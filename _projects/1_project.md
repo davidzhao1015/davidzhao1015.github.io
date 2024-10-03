@@ -1,81 +1,53 @@
 ---
 layout: page
-title: project 1
-description: with background image
+title: Vitamin D and Infant Gut Health, A Regression Analysis
+description: 
 img: assets/img/12.jpg
 importance: 1
-category: work
+category: data analysis
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## Introduction
+--- 
+Health Canada recommends that all exclusively breastfed, healthy, full-term infants receive 400 IU of vitamin D daily until they obtain sufficient amounts from other sources. Infant vitamin D liquid formulations often include non-medicinal excipients, such as glycerin and 1,2-propanediol (1,2-PD), which are inactive substances used as carriers for the active drug. However, the effects of these excipients on the infant gut environment have not been thoroughly studied.
+    
+Previous research has indicated that Veillonellaceae, a type of gut bacteria, decreases in breastfed infants who are supplemented with vitamin D, mirroring trends seen in adults.
+    
+In this analysis, I investigated the impact of vitamin D drops on key gut metabolites and microbes in three-month-old infants. Using multiple regression modeling, the study integrates data from metabolomics, microbiome profiling, and medical records from the CHILD (Canadian Healthy Infant Longitudinal Development) Cohort Study, a large prospective birth cohort in Canada. This approach aims to shed light on how vitamin D supplementation and its non-medicinal components influence the infant gut microbiota.
+    
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## Data
+--- 
+This study analyzed data from 575 infants in the CHILD Cohort Study, accessed on September 1, 2021 ([www.childstudy.ca](http://www.childstudy.ca/)).
+- **Fecal Metabolites:** Quantified as µmol/g of feces using NMR spectroscopy.
+- **Fecal Microbiota:** Collected at 3.7 months (SD = 1.2), analyzed for microbial taxa relative abundance via 16S rRNA gene sequencing on Illumina.
+- **Covariates:** Included delivery mode, feeding practices, antibiotic use, maternal BMI, vitamin use, socioeconomic status, and infant age at stool collection. Data were collected via birth records and standardized questionnaires.
+    
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+## Analysis
+--- 
+- **Missing Data**: Samples with missing values were excluded from the analysis.
+- **Data Transformation and Normalization**: For logistic regression, fecal metabolite concentrations were converted into binary variables (high vs. low levels). For linear regression, concentrations (in µmol/g) were log-transformed to meet model assumptions.
+- **Directed Acyclic Graph (DAG)**: A DAG was used to identify a minimal set of covariates based on a literature review. The 15% change-in-estimate criterion was applied to finalize the covariates for adjustment. View the original DAG graph <a href="https://dagitty.net/dags.html?id=SDRL_h#" target="_blank">here</a>.  
+- **Logistic Regression**: Logistic models were used to assess the impact of vitamin D drops on fecal glycerol and 1,2-PD, with metabolite levels as independent variables and vitamin D drops as the dependent variable. Covariates included feeding mode, introduction of solids at 3 months, maternal education, and age of stool collection.
+- **Linear Regression**: Linear models were constructed to further explore the impact of vitamin D on the two target fecal metabolites, using log-transformed concentrations as independent variables, with categorical and numerical variables as dependent variables.
+- **Spearman Correlation**: Spearman correlation analysis was performed to examine associations between fecal glycerol or 1,2-PD and gut microbes as well as short-chain fatty acids.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+## Results
+--- 
+Vitamin D supplementation was linked to a higher likelihood of elevated 1,2-PD levels and a lower likelihood of elevated fecal glycerol levels after accounting for breastfeeding and other factors. These results were consistent in linear regression models, showing that vitamin D supplementation was positively associated with 1,2-PD and negatively associated with glycerol.
+<!-- <img src="assets/img/vitD-coff-table.png" alt="model table vitD and infant" width="90%" style="float:none; display:block; margin:0 auto;"/> -->
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+Additionally, 1,2-PD and glycerol levels were negatively correlated, and 1,2-PD was positively correlated with Bifidobacteriaceae, Lactobacillaceae, Enterobacteriaceae, and acetate levels.
+<!-- <img src="assets/img/Fig1_heatmap_taxa.jpg" alt="model table vitD and infant" width="90%" style="float:none; display:block; margin:0 auto;"/> -->
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+## Contribution
+--- 
+Our research shows that administering vitamin D supplements to infants may have distinct and independent effects on the metabolites produced by the infant gut microbiota.
 
-{% raw %}
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
+## Acknowledgments
+--- 
+Professor Dr. Anita Kozryskyj supervised the study, with statistical analysis and R programming support provided by colleagues in the SyMBIOTA group.
