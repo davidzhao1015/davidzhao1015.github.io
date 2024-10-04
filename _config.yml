@@ -135,8 +135,9 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: David's Bioinformatics Data Science Blog # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
+blog_name: Bioinformatics Data Science Blog # blog_name will be displayed in your blog page
+blog_description: > # the ">" symbol means to ignore newlines until "footer_text:"
+  A blog about bioinformatics, data science, and computational biology.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -250,6 +251,35 @@ exclude:
   - README.md
   - readme_preview/
   - vendor
+  - _post/2024-01-27-advanced-images.md
+  - _post/2024-04-28-post-citation.md
+  - _post/2015-07-15-code.md
+  - _post/2023-04-25-audios.md
+  - _post/2015-05-15-images.md
+  - _post/2023-12-12-tikzjax.md
+  - _post/2015-10-20-math.md
+  - _post/2023-07-12-post-bibliography.md
+  - _post/2024-01-27-vega-lite.md
+  - _post/2024-01-26-echarts.md
+  - _post/2023-04-24-videos.md
+  - _post/2024-01-26-geojson-map.md
+  - _post/2022-12-10-giscus-comments.md
+  - _post/2024-04-15-pseudocode.md
+  - _post/2022-02-01-redirect.md
+  - _post/2024-05-01-tabs.md
+  - _post/2018-12-22-distill.md
+  - _post/2023-07-04-jupyter-notebook.md
+  - _post/2023-04-25-sidebar-table-of-contents.md
+  - _post/2023-05-12-custom-blockquotes.md
+  - _post/2024-01-27-code-diff.md
+  - _post/2015-03-15-formatting-and-links.md
+  - _post/2024-04-29-typograms.md
+  - _post/2015-10-20-disqus-comments.md
+  - _post/2021-07-04-diagrams.md
+  - _post/2020-09-28-twitter.md
+  - _post/2023-03-20-table-of-contents.md
+  - _post/2023-03-21-tables.md
+  - _post/2024-01-26-chartjs.md
 keep_files:
   - CNAME
   - .nojekyll
