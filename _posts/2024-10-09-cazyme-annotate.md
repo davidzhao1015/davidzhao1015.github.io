@@ -1,10 +1,10 @@
 ---
 layout: post
-title: a post with jupyter notebook
-date: 2023-07-04 08:57:00-0400
-description: an example of a blog post with jupyter notebook
-tags: formatting jupyter
-categories: sample-posts
+title: Annotating Carbohydrate-Active Enzymes in Bacterial Genomes with Python
+date: 2024-10-09 
+description: 
+tags: 
+categories: genomics-analysis
 giscus_comments: true
 related_posts: false
 ---
