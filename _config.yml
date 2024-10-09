@@ -268,7 +268,7 @@ exclude:
   - _posts/2022-02-01-redirect.md
   - _posts/2024-05-01-tabs.md
   - _posts/2018-12-22-distill.md
-  - _posts/2023-07-04-jupyter-notebook.md
+  # - _posts/2023-07-04-jupyter-notebook.md
   - _posts/2023-04-25-sidebar-table-of-contents.md
   - _posts/2023-05-12-custom-blockquotes.md
   - _posts/2024-01-27-code-diff.md
