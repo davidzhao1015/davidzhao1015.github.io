@@ -3,7 +3,7 @@ layout: post
 title: Annotating Carbohydrate-Active Enzymes in Bacterial Genomes with Python
 date: 2024-10-09 
 description: 
-tags: 
+tags: gene_annotation, functional_genomics
 categories: genomics-analysis
 giscus_comments: false
 related_posts: false
