@@ -34,7 +34,14 @@ Childhood obesity, a global concern affecting millions, is linked to serious hea
 ### Machine learning models
 **Design rational:** We tested two approaches with data from two labs: (I) using the combined dataset with dummy laboratory covariates but no batch effect correction, and (II) applying batch effect correction using ComBat before training. Scheme I included non-independent observations in the same set during partitioning and used a generalized linear mixed model to handle random effects, while Scheme II removed batch variation to compare classifier performance.
 
-![workflow ML building](assets/img/workflow-obesity-ml.png)
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/workflow-obesity-ml.png" title="ML workflow" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    The Workflow for Models Training and Testing
+</div>
     
 **Data Partitioning:** In both schemes, non-independent observations (identical individuals) were kept together in the same subset, either training or test, with a 75%/25% split for the combined data. Unique observations were similarly split. Density plots confirmed non-independent observations did not skew the distributions of unique observations.
     
@@ -48,13 +55,18 @@ Childhood obesity, a global concern affecting millions, is linked to serious hea
 --- 
 **Exploratory data analysis:** Batch effect removal improved detection of differentially abundant microbes, with the high-risk group (Traj4) showing distinct microbiota composition compared to others. High-risk microbes such as Blautia and Oscillospira were enriched, while genera like Haemophilus were less abundant. This group was notably different from low-risk groups, explaining a small but significant portion of gut microbiota variance.
 
-<img src="assets/img/eda-obesity-ml.png" alt="EDA obesity ML" width="90%" style="float:none; display:block; margin:0 auto;"/>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/eda-obesity-ml.png" title="EDA obesity ML" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Exploratory Data Analysis 
+</div>
 
 **Feature selection:** We employed filter and wrapper methods for feature selection, both identifying similar key features. The filter method used univariate statistical analysis, while the wrapper method applied recursive feature elimination (RFE). RFE indicated that four predictors were sufficient for optimal predictive power, leading us to select five genera—Oscillospira, Rikenellaceae, Haemophilus, Blautia, and Phascolarctobacterium—for further model development.
 
 **Models:** Among 36 machine learning classifiers tested, the GLMM model with microbial features and infant sex achieved the highest performance with an AUROC of 0.84. Batch correction did not notably enhance classifier performance, and statistical models like RegLog and GLM generally outperformed machine learning models like RF and XGBoost. The GLMM, accounting for repeat samples, improved predictive ability by 14-50% over non-mixed-effect models. Including infant sex in models improved performance, while lab and city variables had minimal impact.
-
-<!-- ![Model menu](assets/img/model-menu.png) -->
 
 **Predictive features:** Microbial features were the key predictors of the target variable, with a panel of five gut microbes—Oscillospira, Rikenellaceae, Haemophilus, Blautia, and Phascolarctobacterium—providing accurate predictions regardless of lab or province. Oscillospira and low Rikenellaceae were particularly predictive of the high-risk group. Covariables like lab, province, and sex had less impact on model performance compared to microbial features, with a GLMM model using only microbial predictors achieving similar performance to one that included infant sex.
 
