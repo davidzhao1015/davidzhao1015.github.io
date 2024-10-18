@@ -8,6 +8,8 @@ categories:
 giscus_comments: false
 related_posts: false
 pretty_table: true  # this will enable the pretty table feature for this post. 
+toc:
+  sidebar: left
 ---
 
 ## The Problem with Dimensionality Reduction in Metabolomics Studies 
