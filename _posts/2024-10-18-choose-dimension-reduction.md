@@ -3,8 +3,8 @@ layout: post
 title: 'Choosing the Right Dimensionality Reduction in Metabolomics: Navigating Common Pitfalls'
 date: 2024-10-18 
 description: 
-tags: 
-categories: 
+tags: metabolomics, data-analysis, dimensionality-reduction 
+categories: statistics
 giscus_comments: false
 related_posts: false
 pretty_table: true  # this will enable the pretty table feature for this post. 
