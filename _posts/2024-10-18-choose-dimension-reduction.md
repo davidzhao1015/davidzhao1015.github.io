@@ -12,11 +12,11 @@ toc:
   sidebar: left
 ---
 
-## The Problem with Dimensionality Reduction in Metabolomics Studies 
+## Challenges of Dimensionality Reduction in Metabolomics Studies
 
 Struggling to choose the right dimensionality reduction method for your metabolomics data? You’re not alone. One of the biggest challenges in data analysis is selecting an appropriate technique to handle high-dimensional datasets without losing valuable information. In this post, we’ll dive into practical solutions to make that decision easier and more effective.
 
-## Understanding Types of Metabolomics Studies
+## Types of Metabolomics Studies
 
 Metabolomics research typically serves three primary purposes: **exploration**, **association**, and **prediction**. 
 
@@ -27,6 +27,8 @@ Metabolomics research typically serves three primary purposes: **exploration**, 
 - **Prediction** involves developing models to classify or predict outcomes based on metabolite profiles, utilizing supervised methods like logistic regression and Random Forest. 
 
 These classifications guide study design and the selection of appropriate statistical techniques.
+
+<hr>
 
 ## Overview of Popular Methods in Chemometrics Analysis 
 
@@ -48,6 +50,8 @@ This table provides a comprehensive overview of each method's essential characte
 | **Autoencoders (Neural Network-based)** | Neural networks used for unsupervised learning that compress data into lower dimensions. | Dimensionality Reduction & Feature Extraction | Non-linearity, sufficient data for training | Captures complex patterns; can be tailored for specific tasks. | Requires careful tuning; sensitive to overfitting. |
 | **Self-Organizing Maps (SOM)** | An unsupervised neural network that projects high-dimensional data onto a lower-dimensional grid. | Clustering & Visualization | Topological preservation of data relationships | Intuitive visualizations; good for exploring data structure. | Can be sensitive to parameters; requires preprocessing |
 
+<hr>
+
 ## Practical Guide to Choosing a Suitable Method 
 
 When selecting a dimensionality reduction method for metabolomics studies, consider the following criteria:
@@ -57,7 +61,7 @@ When selecting a dimensionality reduction method for metabolomics studies, consi
    - Linear Data: Use PCA, PLS, or FA for linear relationships.
    - Non-linear Data: Apply Kernel PCA, t-SNE, or autoencoders for non-linear patterns.
    - Variable Type: Use PCA/PLS for continuous variables. For categorical variables, first use Random Forest for feature selection.
-  
+
 2. **Interpretability:** Some methods offer easier-to-interpret results, while others are better suited for complex visualizations.
 
    - High Interpretability: PCA, FA, and NMF (for non-negative data) offer clearer results.
@@ -113,6 +117,8 @@ By integrating charactersitics of each method (shown in the table above) with th
 | **t-SNE** | Low | Visualization | High | Imputation needed | Non-linear | Continuous | Small datasets | Visualizes high-dimensional data |
 | **Autoencoders** | Low | Dimensionality & Feature Extraction | High | Direct reconstruction | Linear & Non-linear | Continuous | Large datasets | Compresses and reduces dimensionality |
 | **SOM** | High | Clustering & Visualization | Low | Imputation needed | Non-linear | Continuous & Categorical | Moderate datasets | Preserves relationships, handles sparsity |
+
+<hr>
 
 ## Take-Home Message
 
