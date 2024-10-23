@@ -246,7 +246,7 @@ close to zero (approximately, 0.01).
 
 ## Step 3 - Evaluate the Block Effect
 
-## Extract top differentially expressed genes
+**Extract top differentially expressed genes**
 
 In this step, we will extract the top differentially expressed genes
 from the fitted models. We will use the `topTable` function to extract
@@ -309,7 +309,7 @@ the models. In contrast, the covariate, gender has a significant impact
 on the results, as the top differentially expressed genes differ between
 Model 1 and Model 2.
 
-## Visualize the coefficients and CI
+**Visualize the coefficients and CI**
 
 In this step, we will visualize the coefficients and confidence
 intervals for the fixed effects of treatment on gene expression. We will
@@ -418,7 +418,9 @@ be needed to address model assumptions.
                  nrow = 3) 
 ```
 
-![](linear-mixed-model_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/linear-mixed-model_files/figure-markdown_strict/unnamed-chunk-4-1.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
 
 In this case, the residual plots show no clear patterns or trends,
 indicating that the assumptions of homoscedasticity and linearity are
@@ -436,7 +438,9 @@ met for Model 1 - 3.
     qqnorm(residuals(fit_3, y = gene_expression)) 
     qqline(residuals(fit_3, y = gene_expression)) 
 ```
-![](linear-mixed-model_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/linear-mixed-model_files/figure-markdown_strict/unnamed-chunk-5-1.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
 
 The residuals are randomly distributed around zero, with no systematic
 deviations from the assumptions.
