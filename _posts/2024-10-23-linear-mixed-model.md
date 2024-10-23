@@ -1,3 +1,19 @@
+---
+layout: post
+title: 'Introduction to Linear Mixed Models with the limma Package'
+date: 2024-10-18 
+description: 
+tags: data-analysis, limma, linear-mixed-models, gene-expression 
+categories: statistics
+giscus_comments: false
+related_posts: false
+published: true
+pretty_table: true  # this will enable the pretty table feature for this post. 
+toc:
+  sidebar: left
+---
+
+
 # Introduction
 
 In the field of bioinformatics and genomics, understanding the
@@ -70,6 +86,7 @@ The R package `limma` is used for linear models and differential
 expression analysis. If you haven’t installed the package yet, you can
 do so by running the following code:
 
+```r 
     # Install the biocManager package 
     # install.packages("BiocManager") 
     # Install the limma package 
@@ -78,6 +95,7 @@ do so by running the following code:
     library(limma) # For linear models and differential expression analysis 
     library(ggplot2) # For data visualization 
     library(gridExtra)
+```     
 
 # Code Structure
 
@@ -95,12 +113,6 @@ This tutorial is divided into four main steps:
 4.  **Evaluate Model Robustness**: We will evaluate the assumptions of
     homoscedasticity and linearity by examining the residuals and
     checking the normality of residuals using Q-Q plots.
-5.  **Conclusion**: We will summarize the key findings and provide
-    guidance on applying linear mixed-effect models to your own data.
-6.  **References**: We will provide references for further reading and
-    resources on linear mixed-effect models and the limma package.
-7.  **Session Info**: Information about the R session and packages used
-    in this tutorial.
 
 ## Step 1 - Simulate example data
 
@@ -123,6 +135,7 @@ control and treatment groups.
 The gene expression data will be combined into a single data frame, with
 the genes as rows and the samples as columns.
 
+```r
     # Simulate example data
     set.seed(123)
 
@@ -136,35 +149,23 @@ the genes as rows and the samples as columns.
     gene_expression_treatment <- matrix(rnorm(50, mean = 10, sd = 2), nrow = 5, dimnames = list(genes, 1:10)) 
     print(gene_expression_treatment)
 
-    ##               1         2        3         4         5         6         7
-    ## Gene1 12.448164 13.573826 7.864353  6.626613 10.852928 11.377281  8.610586
-    ## Gene2 10.719628 10.995701 9.564050 11.675574  9.409857 11.107835  9.584165
-    ## Gene3 10.801543  6.066766 7.947991 10.306746 11.790251  9.876177  7.469207
-    ## Gene4 10.221365 11.402712 8.542218  7.723726 11.756267  9.388075 14.337912
-    ## Gene5  8.888318  9.054417 8.749921 12.507630 11.643162  9.239058 12.415924
-    ##               8         9        10
-    ## Gene1  7.753783 10.506637 13.032941
-    ## Gene2  9.194230  9.942906  6.902494
-    ## Gene3  9.066689  9.914259 11.169227
-    ## Gene4 11.559930 12.737205 10.247708
-    ## Gene5  9.833262  9.548458 10.431883
+    ##               1         2        3         4         5         6         7         8         9        10
+    ## Gene1 12.448164 13.573826 7.864353  6.626613 10.852928 11.377281  8.610586  7.753783 10.506637 13.032941
+    ## Gene2 10.719628 10.995701 9.564050 11.675574  9.409857 11.107835  9.584165  9.194230  9.942906  6.902494
+    ## Gene3 10.801543  6.066766 7.947991 10.306746 11.790251  9.876177  7.469207  9.066689  9.914259 11.169227
+    ## Gene4 10.221365 11.402712 8.542218  7.723726 11.756267  9.388075 14.337912 11.559930 12.737205 10.247708
+    ## Gene5  8.888318  9.054417 8.749921 12.507630 11.643162  9.239058 12.415924  9.833262  9.548458 10.431883
 
     # Simulate gene expression matrix for control group 
     gene_expression_control <- matrix(rnorm(50, mean = 5, sd = 2), nrow = 5, dimnames = list(genes, 1:10)) 
     print(gene_expression_control)
 
-    ##              1        2         3        4        5        6        7        8
-    ## Gene1 5.759279 5.607057 4.0179377 7.051143 5.011528 5.663564 6.987008 3.799481
-    ## Gene2 3.995353 5.896420 0.3816622 4.430454 5.770561 7.193678 6.096794 9.374666
-    ## Gene3 4.333585 5.106008 7.0114770 2.558565 4.258680 5.870363 5.477463 8.065221
-    ## Gene4 2.962849 6.844535 3.5815985 5.362607 6.288753 4.348137 3.744188 4.528599
-    ## Gene5 2.856418 9.100169 3.6239828 4.722217 4.559027 7.297615 7.721305 2.947158
-    ##              9       10
-    ## Gene1 3.579187 4.909945
-    ## Gene2 5.513767 3.430191
-    ## Gene3 4.506616 1.664116
-    ## Gene4 4.304915 4.239547
-    ## Gene5 3.096763 6.837993
+    ##              1        2         3        4        5        6        7        8        9       10
+    ## Gene1 5.759279 5.607057 4.0179377 7.051143 5.011528 5.663564 6.987008 3.799481 3.579187 4.909945
+    ## Gene2 3.995353 5.896420 0.3816622 4.430454 5.770561 7.193678 6.096794 9.374666 5.513767 3.430191
+    ## Gene3 4.333585 5.106008 7.0114770 2.558565 4.258680 5.870363 5.477463 8.065221 4.506616 1.664116
+    ## Gene4 2.962849 6.844535 3.5815985 5.362607 6.288753 4.348137 3.744188 4.528599 4.304915 4.239547
+    ## Gene5 2.856418 9.100169 3.6239828 4.722217 4.559027 7.297615 7.721305 2.947158 3.096763 6.837993
 
     # Combine the gene expression data 
     gene_expression <- cbind(gene_expression_treatment, gene_expression_control)
@@ -176,24 +177,19 @@ the genes as rows and the samples as columns.
     # Print the expression data
     print(expression_data) 
 
-    ##         sample1   sample2  sample3   sample4   sample5   sample6   sample7
-    ## Gene1 12.448164 13.573826 7.864353  6.626613 10.852928 11.377281  8.610586
-    ## Gene2 10.719628 10.995701 9.564050 11.675574  9.409857 11.107835  9.584165
-    ## Gene3 10.801543  6.066766 7.947991 10.306746 11.790251  9.876177  7.469207
-    ## Gene4 10.221365 11.402712 8.542218  7.723726 11.756267  9.388075 14.337912
-    ## Gene5  8.888318  9.054417 8.749921 12.507630 11.643162  9.239058 12.415924
-    ##         sample8   sample9  sample10 sample11 sample12  sample13 sample14
-    ## Gene1  7.753783 10.506637 13.032941 5.759279 5.607057 4.0179377 7.051143
-    ## Gene2  9.194230  9.942906  6.902494 3.995353 5.896420 0.3816622 4.430454
-    ## Gene3  9.066689  9.914259 11.169227 4.333585 5.106008 7.0114770 2.558565
-    ## Gene4 11.559930 12.737205 10.247708 2.962849 6.844535 3.5815985 5.362607
-    ## Gene5  9.833262  9.548458 10.431883 2.856418 9.100169 3.6239828 4.722217
-    ##       sample15 sample16 sample17 sample18 sample19 sample20
-    ## Gene1 5.011528 5.663564 6.987008 3.799481 3.579187 4.909945
-    ## Gene2 5.770561 7.193678 6.096794 9.374666 5.513767 3.430191
-    ## Gene3 4.258680 5.870363 5.477463 8.065221 4.506616 1.664116
-    ## Gene4 6.288753 4.348137 3.744188 4.528599 4.304915 4.239547
-    ## Gene5 4.559027 7.297615 7.721305 2.947158 3.096763 6.837993
+    ##         sample1   sample2  sample3   sample4   sample5   sample6   sample7   sample8   sample9  sample10 sample11 sample12  sample13 sample14 sample15 sample16 sample17
+    ## Gene1 12.448164 13.573826 7.864353  6.626613 10.852928 11.377281  8.610586  7.753783 10.506637 13.032941 5.759279 5.607057 4.0179377 7.051143 5.011528 5.663564 6.987008
+    ## Gene2 10.719628 10.995701 9.564050 11.675574  9.409857 11.107835  9.584165  9.194230  9.942906  6.902494 3.995353 5.896420 0.3816622 4.430454 5.770561 7.193678 6.096794
+    ## Gene3 10.801543  6.066766 7.947991 10.306746 11.790251  9.876177  7.469207  9.066689  9.914259 11.169227 4.333585 5.106008 7.0114770 2.558565 4.258680 5.870363 5.477463
+    ## Gene4 10.221365 11.402712 8.542218  7.723726 11.756267  9.388075 14.337912 11.559930 12.737205 10.247708 2.962849 6.844535 3.5815985 5.362607 6.288753 4.348137 3.744188
+    ## Gene5  8.888318  9.054417 8.749921 12.507630 11.643162  9.239058 12.415924  9.833262  9.548458 10.431883 2.856418 9.100169 3.6239828 4.722217 4.559027 7.297615 7.721305
+    ##       sample18 sample19 sample20
+    ## Gene1 3.799481 3.579187 4.909945
+    ## Gene2 9.374666 5.513767 3.430191
+    ## Gene3 8.065221 4.506616 1.664116
+    ## Gene4 4.528599 4.304915 4.239547
+    ## Gene5 2.947158 3.096763 6.837993
+```    
 
 ## Step 2 - Fit linear models with limma
 
@@ -209,6 +205,7 @@ samples, such as technical replicates or paired samples. You can use the
 `duplicateCorrelation()` function to model the correlation between
 samples within the same block.
 
+```r
     #------Model 1: Treatment as the only predictor variable------# 
     # Create model matrix (with treatment as the only predictor variable)  
     design_1 <- model.matrix(~ treatment, data = expression_data) 
@@ -234,6 +231,7 @@ samples within the same block.
     fit_3 <- lmFit(gene_expression, design_2, block = people, correlation = corfit$consensus)
     # Apply empirical Bayes moderation
     fit_3_ebayes <- eBayes(fit_3) 
+```    
 
 The `corfit$consensus` object contains the correlation structure of the
 repeated measures, which is used in the `lmFit` function to account for
@@ -256,6 +254,7 @@ the results, including the log fold change, moderated t-statistic, raw
 p-value, adjusted p-value (FDR), and log-odds that the gene is
 differentially expressed.
 
+```r
     # Extract top differentially expressed genes
     topTable(fit_1_ebayes, number = Inf, adjust.method = "BH", sort.by = "P") 
 
@@ -291,6 +290,7 @@ differentially expressed.
     ## Gene5  -5.047331 -0.92392051 7.753734 17.85445 1.761614e-08 2.936023e-08
     ## Gene2  -4.660333  0.40956206 7.558999 15.65513 1.588780e-07 1.985975e-07
     ## Gene3  -4.570291 -0.14614599 7.163048 14.60561 4.538018e-07 4.538018e-07
+```
 
 Parameters Interpretation: - logFC: Log fold change of the gene
 expression between conditions. - AveExpr: Average expression of the gene
@@ -315,6 +315,7 @@ In this step, we will visualize the coefficients and confidence
 intervals for the fixed effects of treatment on gene expression. We will
 compare the results from Model 1, Model 2, and Model 3.
 
+```r
     # Define a function to extract the coefficients and confidence intervals 
     extract_coef_ci <- function(fit) {
       coef_df <- data.frame(
@@ -355,7 +356,8 @@ compare the results from Model 1, Model 2, and Model 3.
     ## Gene32 Gene3 -4.570291 -6.258486 -2.882096 Model_3
     ## Gene42 Gene4 -6.173634 -7.668705 -4.678563 Model_3
     ## Gene52 Gene5 -5.047331 -6.737661 -3.357000 Model_3
-
+```
+```r
     # Plot the fixed effects with confidence intervals, comparing Model 1 - 3 
     pd <- position_dodge(width = 0.2) # Position dodge for better visualization 
 
@@ -367,8 +369,10 @@ compare the results from Model 1, Model 2, and Model 3.
            y = "Estimate (Treatment Effect)") +
       theme_minimal() +
       theme(legend.position = "top") 
-
-![](linear-mixed-model_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+```
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/linear-mixed-model_files/figure-markdown_strict/unnamed-chunk-3-1.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
 
 The plot shows the fixed effects of treatment on gene expression, with
 confidence intervals for Model 1 - 3. The coefficients represent the
@@ -388,7 +392,7 @@ examining the residuals. If the residuals are randomly distributed
 around zero and show no clear patterns, the assumptions are met. If
 there are patterns or trends in the residuals, further investigation may
 be needed to address model assumptions.
-
+```r
     # Plot the residuals
 
     # Create a functiont to plot fitted values vs residuals 
@@ -412,6 +416,7 @@ be needed to address model assumptions.
                  plot_residuals(fit_2, expression_data), 
                  plot_residuals(fit_3, gene_expression), 
                  nrow = 3) 
+```
 
 ![](linear-mixed-model_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
@@ -419,6 +424,7 @@ In this case, the residual plots show no clear patterns or trends,
 indicating that the assumptions of homoscedasticity and linearity are
 met for Model 1 - 3.
 
+```r
     # Check the normality of residuals using Q-Q plots 
     par(mfrow = c(3, 1)) 
     qqnorm(residuals(fit_1, y = expression_data)) 
@@ -429,7 +435,7 @@ met for Model 1 - 3.
 
     qqnorm(residuals(fit_3, y = gene_expression)) 
     qqline(residuals(fit_3, y = gene_expression)) 
-
+```
 ![](linear-mixed-model_files/figure-markdown_strict/unnamed-chunk-5-1.png)
 
 The residuals are randomly distributed around zero, with no systematic
@@ -455,7 +461,7 @@ is not significant. You can apply similar steps to analyze your own data
 with linear mixed-effect models using the `limma` package in R.
 
 # Sessoin Info
-
+```r
     sessionInfo()
 
     ## R version 4.3.3 (2024-02-29)
@@ -463,7 +469,7 @@ with linear mixed-effect models using the `limma` package in R.
     ## Running under: macOS 15.0
     ## 
     ## Matrix products: default
-    ## BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
+    ## BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
     ## LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
     ## 
     ## locale:
@@ -476,15 +482,13 @@ with linear mixed-effect models using the `limma` package in R.
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ## [1] gridExtra_2.3 ggplot2_3.5.0 limma_3.58.1 
+    ## [1] rmarkdown_2.26 gridExtra_2.3  limma_3.58.1   shiny_1.9.1    ggplot2_3.5.0  bookdown_0.41 
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] vctrs_0.6.5       cli_3.6.2         knitr_1.45        rlang_1.1.3      
-    ##  [5] xfun_0.48         highr_0.10        generics_0.1.3    labeling_0.4.3   
-    ##  [9] glue_1.7.0        statmod_1.5.0     colorspace_2.1-1  htmltools_0.5.8  
-    ## [13] scales_1.3.0      fansi_1.0.6       rmarkdown_2.26    grid_4.3.3       
-    ## [17] evaluate_0.23     munsell_0.5.0     tibble_3.2.1      fastmap_1.2.0    
-    ## [21] yaml_2.3.8        lifecycle_1.0.4   compiler_4.3.3    dplyr_1.1.4      
-    ## [25] pkgconfig_2.0.3   rstudioapi_0.16.0 farver_2.1.1      digest_0.6.35    
-    ## [29] R6_2.5.1          tidyselect_1.2.1  utf8_1.2.4        pillar_1.9.0     
-    ## [33] magrittr_2.0.3    withr_3.0.0       tools_4.3.3       gtable_0.3.4
+    ##  [1] sass_0.4.9          utf8_1.2.4          generics_0.1.3      digest_0.6.35       magrittr_2.0.3      evaluate_0.23       grid_4.3.3          fastmap_1.2.0      
+    ##  [9] jsonlite_1.8.8      promises_1.2.1      BiocManager_1.30.25 fansi_1.0.6         scales_1.3.0        jquerylib_0.1.4     cli_3.6.2           rlang_1.1.3        
+    ## [17] munsell_0.5.0       withr_3.0.0         cachem_1.1.0        yaml_2.3.8          tools_4.3.3         memoise_2.0.1       dplyr_1.1.4         colorspace_2.1-1   
+    ## [25] httpuv_1.6.15       vctrs_0.6.5         R6_2.5.1            mime_0.12           lifecycle_1.0.4     pkgconfig_2.0.3     pillar_1.9.0        bslib_0.6.2        
+    ## [33] later_1.3.2         gtable_0.3.4        glue_1.7.0          Rcpp_1.0.12         statmod_1.5.0       xfun_0.48           tibble_3.2.1        tidyselect_1.2.1   
+    ## [41] highr_0.10          rstudioapi_0.16.0   knitr_1.45          farver_2.1.1        xtable_1.8-4        htmltools_0.5.8     labeling_0.4.3      compiler_4.3.3
+```

@@ -253,7 +253,7 @@ exclude:
   - vendor
   - _posts/2024-01-27-advanced-images.md
   - _posts/2024-04-28-post-citation.md
-  - _posts/2015-07-15-code.md
+  # - _posts/2015-07-15-code.md
   - _posts/2023-04-25-audios.md
   - _posts/2015-05-15-images.md
   - _posts/2023-12-12-tikzjax.md
@@ -264,7 +264,7 @@ exclude:
   - _posts/2023-04-24-videos.md
   - _posts/2024-01-26-geojson-map.md
   - _posts/2022-12-10-giscus-comments.md
-  - _posts/2024-04-15-pseudocode.md
+  # - _posts/2024-04-15-pseudocode.md
   - _posts/2022-02-01-redirect.md
   - _posts/2024-05-01-tabs.md
   - _posts/2018-12-22-distill.md
