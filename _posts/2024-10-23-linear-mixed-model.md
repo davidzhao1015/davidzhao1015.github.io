@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Introduction to Linear Mixed Models with the limma Package'
-date: 2024-10-18 
+date: 2024-10-23 
 description: 
 tags: data-analysis, limma, linear-mixed-models, gene-expression 
 categories: statistics
