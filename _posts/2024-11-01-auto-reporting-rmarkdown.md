@@ -1,6 +1,17 @@
-# Blog: Automating Reporting with RMarkdown
-
-Created on October 15, 2024 
+---
+layout: post
+title: 'Automating Reporting with RMarkdown'
+date: 2024-11-01 
+description: 
+tags: rmarkdown; automation; tutorial
+categories: reporting
+giscus_comments: false
+related_posts: false
+published: true
+pretty_table: true  # this will enable the pretty table feature for this post. 
+toc:
+  sidebar: left
+---
 
 # Background and Problem Overview
 
@@ -66,9 +77,9 @@ These folders should follow a consistent naming pattern and contain identically 
 **Step 2: Creating the Initial .Rmd File and YAML Header**
 
 In RStudio, create an RMarkdown file named pca-module.Rmd. Set up the YAML header with the following fields to define metadata for the report:
-
-![Screenshot 2024-11-01 at 11.26.55 AM.png](Blog%20Automating%20Reporting%20with%20RMarkdown%20120f4a55ed83808c8451d9fd38436456/Screenshot_2024-11-01_at_11.26.55_AM.png)
-
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Blog_Automating_Reporting_with_RMarkdown/Screenshot_2024-11-01_at_11.26.55_AM.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
 - title, author, and date define basic document metadata.
 - output is set to md_document to output in markdown format.
 - params initializes customizable parameters (group_1, group_2, order) to control specific sections in the report.
@@ -76,32 +87,35 @@ In RStudio, create an RMarkdown file named pca-module.Rmd. Set up the YAML heade
 **Step 3: Setting Up Parameters**
 
 In the YAML header, the params section allows parameters to be adjusted dynamically through rmarkdown::render() outside the RMarkdown document. 
-
-![Screenshot 2024-11-01 at 11.28.05 AM.png](Blog%20Automating%20Reporting%20with%20RMarkdown%20120f4a55ed83808c8451d9fd38436456/Screenshot_2024-11-01_at_11.28.05_AM.png)
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Blog_Automating_Reporting_with_RMarkdown/Screenshot_2024-11-01_at_11.28.05_AM.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
 
 Each parameter (eg. group_1, group_2, order) is initialized to represent the first group and can be modified later in the .R script for other groups.
 
 **Step 4: Defining Global Variables**
 
 Within the RMarkdown document, define global variables to capture parameter values and paths for figures and tables:
-
-![Screenshot 2024-11-01 at 11.29.07 AM.png](Blog%20Automating%20Reporting%20with%20RMarkdown%20120f4a55ed83808c8451d9fd38436456/Screenshot_2024-11-01_at_11.29.07_AM.png)
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Blog_Automating_Reporting_with_RMarkdown/Screenshot_2024-11-01_at_11.29.07_AM.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
 
 These variables allow us to set paths and references that will update automatically with each parameter iteration.
 
 **Step 5: Editing Subtitles with Code**
 
 To make subtitles change dynamically for each group, use a for loop and if-else statements:
-
-![Screenshot 2024-11-01 at 11.29.54 AM.png](Blog%20Automating%20Reporting%20with%20RMarkdown%20120f4a55ed83808c8451d9fd38436456/Screenshot_2024-11-01_at_11.29.54_AM.png)
-
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Blog_Automating_Reporting_with_RMarkdown/Screenshot_2024-11-01_at_11.29.54_AM.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
 This will display a specific subtitle for the first group and adjust accordingly for subsequent groups. Inline R code can also be used to insert parameter-based subtitles at different levels in the report.
 
 **Step 6: Embedding Variables in Figures, Tables, and Narrative Text**
 
 In the body of the report, combine static text with inline R code to make dynamic sections for figures, tables, and narrative text.
-
-![Screenshot 2024-11-01 at 11.30.46 AM.png](Blog%20Automating%20Reporting%20with%20RMarkdown%20120f4a55ed83808c8451d9fd38436456/Screenshot_2024-11-01_at_11.30.46_AM.png)
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Blog_Automating_Reporting_with_RMarkdown/Screenshot_2024-11-01_at_11.30.46_AM.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
 
 **Step 7: Writing a Loop to Automate Rendering**
 
@@ -110,9 +124,9 @@ In a new `.R` script, create a function to loop through each group, rendering th
 1. **Create a Data Frame:** Define groups with corresponding values in a data frame.
 
 ```r
-groups_collection2 <- data.frame(group_1 = c("WT-NC", "KO-NC"), 
-																 group_2 = c("WT-HFD", "KO-HFD"),
-																 orders = c(1, 2))
+groups_collection2 <- data.frame(group_1 = c("WT-NC", "KO-NC"),
+								 group_2 = c("WT-HFD", "KO-HFD"),
+								 orders = c(1, 2))
 ```
 
 1. **Loop through Groups**: Use a for loop with rmarkdown::render() to render the .Rmd file for each group.
@@ -125,8 +139,10 @@ for (n in 1:nrow(groups_collection2)) {
 	
 	rmarkdown::render("pca-module.Rmd",                       
 		output_file = paste0("pca_", group_1, "_", group_2, ".md"),
-		params = list(group_1 = group_1, group_2 = group_2, host = "Mice",
-									order = order))
+		params = list(group_1 = group_1, 
+		              group_2 = group_2,
+					  host = "Mice",
+					  order = order))
 									} 
 ```
 
