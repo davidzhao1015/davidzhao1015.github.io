@@ -13,7 +13,7 @@ toc:
   sidebar: left
 ---
 
-# Background and Problem Overview
+## Background and Problem Overview
 
 ---
 
@@ -21,11 +21,11 @@ RMarkdown is a powerful tool widely used for creating dynamic, professional repo
 
 Recently, I experienced firsthand how automating RMarkdown reporting can enhance both speed and accuracy in my workflows. This blog will serve as a step-by-step guide, showing how you can leverage RMarkdown’s automation features to streamline your own projects with minimal parameter adjustments.
 
-## Problem Scenario
+### Problem Scenario
 
 In a recent project, I needed to generate multiple reports for PCA analysis across two comparison groups. For each group, I had to update several pieces of narrative text and adjust file paths for specific figures and tables. This repetitive, manual process quickly became time-consuming and error-prone. With RMarkdown’s programming capabilities, I was able to automate these updates, saving at least 30% of my time. Not only did this streamline the current project, but it also set up a reusable template for future reporting needs.
 
-# Prerequisites
+## Prerequisites
 
 ---
 
@@ -33,16 +33,16 @@ Before diving into automating RMarkdown reports, it’s important to have a foun
 
 - **Parameters in the YAML Header**: In RMarkdown, the YAML header at the top of your file allows you to set global parameters that can be accessed throughout the document. These parameters let you customize elements such as titles, dates, and specific variables needed for your analysis. Knowing how to define and edit parameters in the YAML header is essential for making your reports dynamic and flexible.
 - **Creating Variables from Parameter Values**: Once parameters are set in the YAML header, they need to be referenced within the document. This involves creating variables in R that directly pull from these parameter values. By doing so, you can easily update specific content across the report by simply changing the parameter values, without having to adjust individual sections manually.
-- **Embedding Parameters Using** knit: RMarkdown’s knit function allows you to insert parameters within text, code chunks, or inline calculations. This embedding feature is crucial for dynamically adjusting content within the report, ensuring that titles, captions, and sections update seamlessly with each rendering of the file.
-- **The** rmarkdown::render() **Function**: This function is central to programmatically creating reports. It lets you specify an RMarkdown file along with any custom parameters you want to update for each run. By using rmarkdown::render(), you can generate multiple customized reports in one go by changing parameters in a loop.
-- **Iterating with** for **Loops**: Automation often requires generating multiple outputs for different variables or scenarios. A basic understanding of for loops in R is helpful here, as it allows you to iterate over different parameter sets, such as comparison groups in an analysis. This approach makes it easy to replicate report structures with tailored content for each scenario.
+- **Embedding Parameters Using knit**: RMarkdown’s knit function allows you to insert parameters within text, code chunks, or inline calculations. This embedding feature is crucial for dynamically adjusting content within the report, ensuring that titles, captions, and sections update seamlessly with each rendering of the file.
+- **The rmarkdown::render() Function**: This function is central to programmatically creating reports. It lets you specify an RMarkdown file along with any custom parameters you want to update for each run. By using rmarkdown::render(), you can generate multiple customized reports in one go by changing parameters in a loop.
+- **Iterating with *for* Loops**: Automation often requires generating multiple outputs for different variables or scenarios. A basic understanding of for loops in R is helpful here, as it allows you to iterate over different parameter sets, such as comparison groups in an analysis. This approach makes it easy to replicate report structures with tailored content for each scenario.
 - **Running Base Command Lines in R**: Certain aspects of automating RMarkdown reports may involve running command-line operations directly from R. This skill enables you to manage file paths, automate data downloads, or perform batch processing, enhancing the report’s flexibility and reducing manual workload.
 
 Familiarity with these components will help you set up an efficient, automated RMarkdown reporting process that can be reused and adapted to meet future reporting needs.
 
 If you’re new to RMarkdown or R, I recommend reviewing the basics in the official guide, [*R Markdown: The Definitive Guide*](https://bookdown.org/yihui/rmarkdown/), to ensure you’re comfortable with these fundamentals before proceeding.
 
-# Data and Codes
+## Data and Codes
 
 ---
 
@@ -54,7 +54,7 @@ To follow along with this tutorial and reproduce the automated reporting process
 
 By downloading and running these files locally, you’ll be able to experiment with the process firsthand and see how each component interacts in automating RMarkdown reports.
 
-# **Step-by-Step Guide**
+## Step-by-Step Guide
 
 ---
 
@@ -64,7 +64,7 @@ In this example, we have two PCA comparison groups, “WT-NC vs WT-HFD” and �
 
 **Step 1: Organizing and Naming Files**
 
-Start by organizing our data files. Create two folders named Download_WT-NC_WT-HFD and Download_KO-NC_KO-HFD. Each folder will hold three essential files for the PCA report:
+Start by organizing our data files. Create two folders named `Download_WT-NC_WT-HFD` and `Download_KO-NC_KO-HFD`. Each folder will hold three essential files for the PCA report:
 
 •	`pca_scored2d_0_dpi72.png` (PCA score plot image)
 
@@ -76,7 +76,7 @@ These folders should follow a consistent naming pattern and contain identically 
 
 **Step 2: Creating the Initial .Rmd File and YAML Header**
 
-In RStudio, create an RMarkdown file named pca-module.Rmd. Set up the YAML header with the following fields to define metadata for the report:
+In RStudio, create an RMarkdown file named `pca-module.Rmd`. Set up the YAML header with the following fields to define metadata for the report:
 <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/Blog_Automating_Reporting_with_RMarkdown/Screenshot_2024-11-01_at_11.26.55_AM.png" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
@@ -160,7 +160,7 @@ This will create a single file, `combined_pca.md`, containing the complete repor
 
 Following these steps, you can streamline report creation for multiple groups, making RMarkdown a powerful tool for efficient, reproducible analysis.
 
-# Takeaway
+## Takeaway
 
 ---
 
