@@ -1,18 +1,18 @@
 ---
 layout: post
-title: Annotating Carbohydrate-Active Enzymes in Bacterial Genomes with Python
-date: 2024-10-09 
+title: “How to Perform Power Analysis for High-Throughput Omics Data Using SSPA:A Guide to the Bioconductor Package”
+date: 2024-11-07 
 description: 
-tags: gene_annotation, bacterial_functions, carbohydrate-active_enzymes, jupyter_notebook
-categories: genomics
+tags: power-analysis; bioconductor; R; SSPA
+categories: statistics
 giscus_comments: false
 related_posts: false
 published: true
 ---
 
 {::nomarkdown}
-{% assign jupyter_path = "assets/jupyter/annotate-bacteria-genomes.ipynb" | relative_url %}
-{% capture notebook_exists %}{% file_exists assets/jupyter/annotate-bacteria-genomes.ipynb %}{% endcapture %}
+{% assign jupyter_path = "assets/jupyter/power-analysis-sspa-case-study.ipynb" | relative_url %}
+{% capture notebook_exists %}{% file_exists assets/jupyter/power-analysis-sspa-case-study.ipynb %}{% endcapture %}
 {% if notebook_exists == "true" %}
 {% jupyter_notebook jupyter_path %}
 {% else %}
