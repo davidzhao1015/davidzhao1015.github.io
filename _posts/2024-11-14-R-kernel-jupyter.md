@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'How to Run R (Kernel) in Jupyter Notebook with VS Code: A Problem-Solver’s Guide'
+title: 'How to Run R Code in Jupyter Notebook within VS Code: A Step-by-Step Guide'
 date: 2024-11-14
 description: 
 tags: 
@@ -14,11 +14,11 @@ toc:
 
 ## Introduction
 
-Jupyter Notebook is a web app for creating and sharing computational documents. By using an IDE like Visual Studio Code (VS Code), developers can run Jupyter Notebook on their local machines and take advantage of powerful extensions available in VS Code.
+Jupyter Notebook is an invaluable tool for data scientists, researchers, and developers, enabling them to create and share computational documents seamlessly. With the added power of an integrated development environment (IDE) like Visual Studio Code (VS Code), you can run Jupyter Notebook locally and access an array of helpful extensions that enhance your workflow.
 
-However, Jupyter Notebook and its extension in VS Code only support certain programming languages, such as Python, and not R—which I wanted to use for a blogging project.
+However, despite Jupyter Notebook’s broad support for programming languages like Python, it doesn’t natively support R—something I quickly discovered while trying to use it for a blogging project. Determined to make it work, I embarked on a journey that involved scouring solutions online, seeking advice from the programming community, and leveraging the power of ChatGPT 4.0. Through a mix of trial, error, and persistence, I finally uncovered a method to run R code in Jupyter Notebook within VS Code.
 
-After exploring solutions, including help from the programming community, ChatGPT 4.0, and trial and error, I found a way to run R code in Jupyter Notebook within VS Code. I’d like to share a step-by-step guide for others with the same need and explain the troubleshooting process behind it.
+In this blog post, I’m excited to share a step-by-step guide that will help others in the same situation. I’ll also walk you through the troubleshooting process that eventually led to my solution, so you can learn from my experience and avoid the roadblocks I encountered.
 
 ## Step-by-Step Guide to Install R Kernel in Jupyter Notebook
 
