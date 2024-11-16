@@ -9,7 +9,7 @@ profile:
   image: profile-pic-real.png
   image_circular: true # crops the image to make it circular
   more_info: >
-    <p>Research Associate</p>
+    <p>Bioinformatician</p>
     <p>University of Alberta</p>
     <p>Edmonton, AB</p>
 
@@ -18,10 +18,6 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a bioinformatician with PhD in microbiology. 
-
-I help biologists make scientific discoveries more accurately and efficiently. 
-
-I use and create computational tools to analyze complex data in a robust and reproducible way. So biologists can focus on thinking and experiment. 
+David has extensive experience in microbiome research, bioinformatics, and epidemiology, with a strong background in food microbiology that enriches his understanding of microbial ecology and public health. Leveraging his proficiency in R, Python, and Unix, he bridges microbiology and epidemiology with computational biology to contribute valuable data analysis for public health and biotech solutions.
 
 
