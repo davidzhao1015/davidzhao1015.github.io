@@ -7,7 +7,7 @@ tags: gene_annotation, bacterial_functions, carbohydrate-active_enzymes, jupyter
 categories: genomics
 giscus_comments: false
 related_posts: false
-published: true
+published: false
 ---
 
 {::nomarkdown}

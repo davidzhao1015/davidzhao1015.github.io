@@ -4,7 +4,7 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Xin
-middle_name: David 
+middle_name: (David)
 last_name: Zhao
 email: davidzhao1015@gmail.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
@@ -137,7 +137,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 blog_name: EpiGenomics Explorer # blog_name will be displayed in your blog page
 blog_description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  This blog explores the intersection of genomics, public health, and bioinformatics through insights, tutorials, and case studies. It showcases how genomic data can inform public health strategies and personalized medicine.
+  This blog delves into the intersection of genomics, public health, and bioinformatics, offering insights, tutorials, and case studies that reveal how genomic data can drive public health strategies and advance personalized medicine.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
