@@ -2,7 +2,7 @@
 layout: page
 title: "WEGAN: Web Application Streamlining Ecology Data Analysis"
 description: 
-img: assets/img/3.jpg
+img: assets/img/animal-data.png
 importance: 1
 category: software
 giscus_comments: false

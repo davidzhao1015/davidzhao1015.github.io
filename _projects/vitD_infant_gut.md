@@ -2,7 +2,7 @@
 layout: page
 title: Vitamin D and Infant Gut Health, A Regression Analysis
 description: 
-img: assets/img/12.jpg
+img: assets/img/baby-pharmacy.jpg
 importance: 1
 category: data analysis
 related_publications: true

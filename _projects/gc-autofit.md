@@ -2,7 +2,7 @@
 layout: page
 title: "GC-AutoFit: Web Application Automating and Accelerating GC-MS Metabolomics"
 description: 
-img: assets/img/3.jpg
+img: assets/img/chemistry-computer.jpg
 importance: 2
 category: software
 giscus_comments: false

@@ -2,7 +2,7 @@
 layout: page
 title: Predict Childhood Obesity Using RF, XGBoost and GLMM in R
 description: 
-img: assets/img/3.jpg
+img: assets/img/baby-on-scale.jpg
 importance: 2
 category: data analysis
 giscus_comments: false

@@ -2,7 +2,7 @@
 layout: page
 title: Impact of Birth Factors on Infant Gut Health, Insights from a Microbiota Study
 description: 
-img: assets/img/3.jpg
+img: assets/img/hospital-baby.jpg
 importance: 3
 category: data analysis
 giscus_comments: false

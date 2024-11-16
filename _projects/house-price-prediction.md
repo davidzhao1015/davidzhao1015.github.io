@@ -2,7 +2,7 @@
 layout: page
 title: Exploratory Data Analysis for House Price Prediction, a Kaggle competition
 description: "Jupyter notebook for exploratory data analysis (EDA) on the House Prices: Advanced Regression Techniques dataset from Kaggle."
-img: assets/img/7.jpg
+img: assets/img/house-property.jpg
 redirect: 
 importance: 3
 category: data analysis 
