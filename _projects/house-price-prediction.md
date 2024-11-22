@@ -2,7 +2,7 @@
 layout: page
 title: "Exploring Ames Housing Prices: A Data-Driven Analysis" 
 description: Exploratory Data Analysis for House Price Prediction, a Kaggle competition
-img: assets/img/house-property.jpg
+img: assets/img/house-property-copy.png
 redirect: 
 importance: 3
 category: data analysis 
