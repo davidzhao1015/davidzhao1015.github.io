@@ -255,7 +255,7 @@ exclude:
   - _posts/2024-04-28-post-citation.md
   # - _posts/2015-07-15-code.md
   - _posts/2023-04-25-audios.md
-  - _posts/2015-05-15-images.md
+  # - _posts/2015-05-15-images.md
   - _posts/2023-12-12-tikzjax.md
   - _posts/2015-10-20-math.md
   - _posts/2023-07-12-post-bibliography.md

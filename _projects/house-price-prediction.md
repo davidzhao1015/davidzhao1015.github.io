@@ -13,24 +13,35 @@ category: data analysis
 
 Welcome to our interactive project page on Ames Housing Prices. Using cutting-edge data analysis techniques, we delve into key factors driving home values. Explore the relationships between property features, neighborhood characteristics, and sale prices to uncover actionable insights for buyers, sellers, and industry professionals. 
 
-Key Visuals:
-- A map-based visualization highlighting different neighborhoods with average sale prices (if available).
-- The histogram showing the distribution of SalePrice, labeled to showcase skewness and the need for transformations.
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/eda-house-price-distribution.png" class="img-fluid rounded z-depth-1 w-50 d-block mx-auto" zoomable=true %}
+</div>
+<div class="caption">
+Figure 1: The histogram showing the distribution of SalePrice, labeled to showcase skewness and the need for transformations.
+</div>
+
 
 ## Exploratory Insights: Understanding the Data 
 
 This section offers an overview of the data we explored. The Ames dataset includes 79 variables detailing physical property features, construction quality, and more. By visualizing patterns, we aim to extract meaningful insights that support predictive modeling. 
 
-Key Visuals:
-- A scatter plot of GrLivArea vs. SalePrice, highlighting outliers and adding a trendline to illustrate the positive relationship.
-- Correlation heatmaps (e.g., Spearman correlations) for numeric variables against SalePrice.
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/eda-spearman-house.png" class="img-fluid rounded z-depth-1 w-60 d-block mx-auto" zoomable=true %}
+</div>
+<div class="caption">
+Figure 2: Correlation heatmaps (Spearman correlations) for numeric variables against SalePrice.
+</div>
+
 
 ## Data Cleaning and Preprocessing: Preparing the Data for Analysis 
 Accurate results require clean data. In this phase, we handled missing values, normalized skewed distributions, and removed significant outliers. These steps enhanced the dataset’s reliability for model training and prediction. 
 
-Key Visuals:
-- A bar chart summarizing missing value percentages for key variables before and after imputation.
-- Box plots showing outlier handling for significant predictors (e.g., GrLivArea).
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/eda-outlier-pca.png" class="img-fluid rounded z-depth-1 w-80 d-block mx-auto" zoomable=true %}
+</div>
+<div class="caption">
+Figure 3: MDS plot illustrating multivariate distribution before and after outlier removal. 
+</div>
 
 ## Key Findings: What Influences House Prices the Most? 
 Our analysis identifies several critical factors influencing house prices in Ames. Variables like construction quality (OverallQual), above-ground living area (GrLivArea), and garage capacity (GarageCars) are top predictors, alongside categorical variables like Neighborhood and KitchenQual.”
