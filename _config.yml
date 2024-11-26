@@ -278,7 +278,7 @@ exclude:
   - _posts/2021-07-04-diagrams.md
   - _posts/2020-09-28-twitter.md
   - _posts/2023-03-20-table-of-contents.md
-  - _posts/2023-03-21-tables.md
+  # - _posts/2023-03-21-tables.md
   - _posts/2024-01-26-chartjs.md
 keep_files:
   - CNAME

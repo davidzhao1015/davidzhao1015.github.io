@@ -46,20 +46,131 @@ Figure 3: MDS plot illustrating multivariate distribution before and after outli
 ## Key Findings: What Influences House Prices the Most? 
 Our analysis identifies several critical factors influencing house prices in Ames. Variables like construction quality (OverallQual), above-ground living area (GrLivArea), and garage capacity (GarageCars) are top predictors, alongside categorical variables like Neighborhood and KitchenQual.”
 
-Key Visuals:
-- The combined effect size and correlation rankings for top predictors (categorical and numeric) visualized as a ranked bar plot.
-- A scatter plot or box plot illustrating the impact of OverallQual on SalePrice.
+Table 1: Top Predictors (categorical variables) by Effect Size and Correlation 
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Feature</th>
+      <th style="text-align:center;">Eta_squared</th>
+      <th style="text-align:right;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left;">Neighborhood</td>
+      <td style="text-align:center;">0.568543</td>
+      <td style="text-align:right;">Physical locations within Ames city limits</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">ExterQual</td>
+      <td style="text-align:center;">0.493060</td>
+      <td style="text-align:right;">Evaluates the quality of the material on the exterior</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">BsmtQual</td>
+      <td style="text-align:center;">0.481337</td>
+      <td style="text-align:right;">Evaluates the height of the basement</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">KitchenQual</td>
+      <td style="text-align:center;">0.462710</td>
+      <td style="text-align:right;">Kitchen quality</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">GarageFinish</td>
+      <td style="text-align:center;">0.327065</td>
+      <td style="text-align:right;">Interior finish of the garage</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Foundation</td>
+      <td style="text-align:center;">0.295928</td>
+      <td style="text-align:right;">Type of foundation</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">HeatingQC</td>
+      <td style="text-align:center;">0.214752</td>
+      <td style="text-align:right;">Heating quality and condition</td>
+    </tr>
+  </tbody>
+</table>
+
+
+Table 2: Top Predictors (numeric variables) by Spearman Correlation Estimate 
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left;">Feature</th>
+      <th style="text-align:right;">Correlation</th>
+      <th style="text-align:left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left;">OverallQual</td>
+      <td style="text-align:right;">0.8075842966430010</td>
+      <td style="text-align:left;">Rates the overall material and finish of the house</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">GrLivArea</td>
+      <td style="text-align:right;">0.719779223011482</td>
+      <td style="text-align:left;">Above grade (ground) living area square feet</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">GarageCars</td>
+      <td style="text-align:right;">0.684793385198476</td>
+      <td style="text-align:left;">Size of garage in car capacity</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">YearBuilt</td>
+      <td style="text-align:right;">0.6682631183907660</td>
+      <td style="text-align:left;">Original construction date</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">GarageArea</td>
+      <td style="text-align:right;">0.6409778025977150</td>
+      <td style="text-align:left;">Size of garage in square feet</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">FullBath</td>
+      <td style="text-align:right;">0.6302125596519220</td>
+      <td style="text-align:left;">Full bathrooms above grade</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">TotalBsmtSF</td>
+      <td style="text-align:right;">0.5891822102922280</td>
+      <td style="text-align:left;">Total square feet of basement area</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">YearRemodAdd</td>
+      <td style="text-align:right;">0.5780832939615990</td>
+      <td style="text-align:left;">Remodel date (same as construction date if no remodeling)</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">GarageYrBlt</td>
+      <td style="text-align:right;">0.5691447435703280</td>
+      <td style="text-align:left;">Year garage was built</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">1stFlrSF</td>
+      <td style="text-align:right;">0.555504895937001</td>
+      <td style="text-align:left;">First Floor square feet</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">TotRmsAbvGrd</td>
+      <td style="text-align:right;">0.51420629865103</td>
+      <td style="text-align:left;">Total rooms above grade (does not include bathrooms)</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">Fireplaces</td>
+      <td style="text-align:right;">0.5070275921113580</td>
+      <td style="text-align:left;">Number of fireplaces</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Applications: Real-World Impacts 
 This project showcases how data-driven insights can guide property investments, urban development, and market strategies. By understanding what drives house prices, stakeholders can make better decisions that align with buyer preferences and market demands. 
 
-Key Visuals:
-- Example plots showing differences in house prices across neighborhoods.
-- Heatmaps of categorical feature impacts.
-
 ## Next Steps: Where Do We Go from Here? 
 Building on these exploratory insights, the next phase involves predictive modeling. By leveraging identified patterns and preprocessing strategies, we aim to develop models that accurately forecast house prices. 
-
-Key Visuals:
-- A flowchart of the data analysis and modeling pipeline.
-- Placeholder visuals hinting at the future integration of machine learning models.
