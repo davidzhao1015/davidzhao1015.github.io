@@ -183,8 +183,28 @@ Table 2: Top Predictors (numeric variables) by Spearman Correlation Estimate
   </tbody>
 </table>
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/scatterplot-saleprice-livearea.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/scatterplot-saleprice-livearea-transf.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Figure 4: Scatter plot showing the relationship between SalePrice and GrLivArea before and after transformation
+</div>
+
 ## Applications: Real-World Impacts 
 This project showcases how data-driven insights can guide property investments, urban development, and market strategies. By understanding what drives house prices, stakeholders can make better decisions that align with buyer preferences and market demands. 
+
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/boxplot-saleprice-neighbour.png" class="img-fluid rounded z-depth-1 w-80 d-block mx-auto" zoomable=true %}
+</div>
+<div class="caption">
+Figure 5: Box plot showing that neighborhood predicts house sale price 
+</div>
+
 
 ## Next Steps: Where Do We Go from Here? 
 Building on these exploratory insights, the next phase involves predictive modeling. By leveraging identified patterns and preprocessing strategies, we aim to develop models that accurately forecast house prices. 
