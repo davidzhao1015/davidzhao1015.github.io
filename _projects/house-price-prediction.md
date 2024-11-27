@@ -1,12 +1,28 @@
 ---
 layout: page
 title: "Exploring Ames Housing Prices: A Data-Driven Analysis" 
-description: Exploratory Data Analysis for House Price Prediction, a Kaggle competition
+description: Exploratory data analysis for house price prediction, a Kaggle competition
 img: assets/img/house-property-copy.png
 redirect: 
 importance: 3
 category: data analysis 
 ---
+
+<style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid grey;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+</style>
 
 
 ## Introductory 
@@ -50,121 +66,119 @@ Table 1: Top Predictors (categorical variables) by Effect Size and Correlation
 <table>
   <thead>
     <tr>
-      <th style="text-align:left;">Feature</th>
-      <th style="text-align:center;">Eta_squared</th>
-      <th style="text-align:right;">Description</th>
+      <th>Feature</th>
+      <th>Eta_squared</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left;">Neighborhood</td>
-      <td style="text-align:center;">0.568543</td>
-      <td style="text-align:right;">Physical locations within Ames city limits</td>
+      <td>Neighborhood</td>
+      <td>0.57</td>
+      <td>Physical locations within Ames city limits</td>
     </tr>
     <tr>
-      <td style="text-align:left;">ExterQual</td>
-      <td style="text-align:center;">0.493060</td>
-      <td style="text-align:right;">Evaluates the quality of the material on the exterior</td>
+      <td>ExterQual</td>
+      <td>0.49</td>
+      <td>Evaluates the quality of the material on the exterior</td>
     </tr>
     <tr>
-      <td style="text-align:left;">BsmtQual</td>
-      <td style="text-align:center;">0.481337</td>
-      <td style="text-align:right;">Evaluates the height of the basement</td>
+      <td>BsmtQual</td>
+      <td>0.48</td>
+      <td>Evaluates the height of the basement</td>
     </tr>
     <tr>
-      <td style="text-align:left;">KitchenQual</td>
-      <td style="text-align:center;">0.462710</td>
-      <td style="text-align:right;">Kitchen quality</td>
+      <td>KitchenQual</td>
+      <td>0.46</td>
+      <td>Kitchen quality</td>
     </tr>
     <tr>
-      <td style="text-align:left;">GarageFinish</td>
-      <td style="text-align:center;">0.327065</td>
-      <td style="text-align:right;">Interior finish of the garage</td>
+      <td>GarageFinish</td>
+      <td>0.33</td>
+      <td>Interior finish of the garage</td>
     </tr>
     <tr>
-      <td style="text-align:left;">Foundation</td>
-      <td style="text-align:center;">0.295928</td>
-      <td style="text-align:right;">Type of foundation</td>
+      <td>Foundation</td>
+      <td>0.30</td>
+      <td>Type of foundation</td>
     </tr>
     <tr>
-      <td style="text-align:left;">HeatingQC</td>
-      <td style="text-align:center;">0.214752</td>
-      <td style="text-align:right;">Heating quality and condition</td>
+      <td>HeatingQC</td>
+      <td>0.21</td>
+      <td>Heating quality and condition</td>
     </tr>
   </tbody>
 </table>
 
-
 Table 2: Top Predictors (numeric variables) by Spearman Correlation Estimate 
-
-<table>
+<table id="table">
   <thead>
     <tr>
-      <th style="text-align:left;">Feature</th>
-      <th style="text-align:right;">Correlation</th>
-      <th style="text-align:left;">Description</th>
+      <th>Feature</th>
+      <th>Correlation</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left;">OverallQual</td>
-      <td style="text-align:right;">0.8075842966430010</td>
-      <td style="text-align:left;">Rates the overall material and finish of the house</td>
+      <td>OverallQual</td>
+      <td>0.81</td>
+      <td>Rates the overall material and finish of the house</td>
     </tr>
     <tr>
-      <td style="text-align:left;">GrLivArea</td>
-      <td style="text-align:right;">0.719779223011482</td>
-      <td style="text-align:left;">Above grade (ground) living area square feet</td>
+      <td>GrLivArea</td>
+      <td>0.72</td>
+      <td>Above grade (ground) living area square feet</td>
     </tr>
     <tr>
-      <td style="text-align:left;">GarageCars</td>
-      <td style="text-align:right;">0.684793385198476</td>
-      <td style="text-align:left;">Size of garage in car capacity</td>
+      <td>GarageCars</td>
+      <td>0.68</td>
+      <td>Size of garage in car capacity</td>
     </tr>
     <tr>
-      <td style="text-align:left;">YearBuilt</td>
-      <td style="text-align:right;">0.6682631183907660</td>
-      <td style="text-align:left;">Original construction date</td>
+      <td>YearBuilt</td>
+      <td>0.67</td>
+      <td>Original construction date</td>
     </tr>
     <tr>
-      <td style="text-align:left;">GarageArea</td>
-      <td style="text-align:right;">0.6409778025977150</td>
-      <td style="text-align:left;">Size of garage in square feet</td>
+      <td>GarageArea</td>
+      <td>0.64</td>
+      <td>Size of garage in square feet</td>
     </tr>
     <tr>
-      <td style="text-align:left;">FullBath</td>
-      <td style="text-align:right;">0.6302125596519220</td>
-      <td style="text-align:left;">Full bathrooms above grade</td>
+      <td>FullBath</td>
+      <td>0.63</td>
+      <td>Full bathrooms above grade</td>
     </tr>
     <tr>
-      <td style="text-align:left;">TotalBsmtSF</td>
-      <td style="text-align:right;">0.5891822102922280</td>
-      <td style="text-align:left;">Total square feet of basement area</td>
+      <td>TotalBsmtSF</td>
+      <td>0.59</td>
+      <td>Total square feet of basement area</td>
     </tr>
     <tr>
-      <td style="text-align:left;">YearRemodAdd</td>
-      <td style="text-align:right;">0.5780832939615990</td>
-      <td style="text-align:left;">Remodel date (same as construction date if no remodeling)</td>
+      <td>YearRemodAdd</td>
+      <td>0.58</td>
+      <td>Remodel date (same as construction date if no remodeling)</td>
     </tr>
     <tr>
-      <td style="text-align:left;">GarageYrBlt</td>
-      <td style="text-align:right;">0.5691447435703280</td>
-      <td style="text-align:left;">Year garage was built</td>
+      <td>GarageYrBlt</td>
+      <td>0.57</td>
+      <td>Year garage was built</td>
     </tr>
     <tr>
-      <td style="text-align:left;">1stFlrSF</td>
-      <td style="text-align:right;">0.555504895937001</td>
-      <td style="text-align:left;">First Floor square feet</td>
+      <td>1stFlrSF</td>
+      <td>0.56</td>
+      <td>First Floor square feet</td>
     </tr>
     <tr>
-      <td style="text-align:left;">TotRmsAbvGrd</td>
-      <td style="text-align:right;">0.51420629865103</td>
-      <td style="text-align:left;">Total rooms above grade (does not include bathrooms)</td>
+      <td>TotRmsAbvGrd</td>
+      <td>0.51</td>
+      <td>Total rooms above grade (does not include bathrooms)</td>
     </tr>
     <tr>
-      <td style="text-align:left;">Fireplaces</td>
-      <td style="text-align:right;">0.5070275921113580</td>
-      <td style="text-align:left;">Number of fireplaces</td>
+      <td>Fireplaces</td>
+      <td>0.51</td>
+      <td>Number of fireplaces</td>
     </tr>
   </tbody>
 </table>
