@@ -24,6 +24,8 @@ category: data analysis
         }
 </style>
 
+[📘Python Notebook](https://github.com/davidzhao1015/house-price-eda/blob/main/house-price-EDA.ipynb)
+
 
 ## Introductory 
 
@@ -208,3 +210,10 @@ Figure 5: Box plot showing that neighborhood predicts house sale price
 
 ## Next Steps: Where Do We Go from Here? 
 Building on these exploratory insights, the next phase involves predictive modeling. By leveraging identified patterns and preprocessing strategies, we aim to develop models that accurately forecast house prices. 
+
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/EDA-analysis-workflow-chart.001.jpeg" class="img-fluid rounded z-depth-1 w-80 d-block mx-auto" zoomable=true %}
+</div>
+<div class="caption">
+Figure 6: Exploratory data analysis workflow chart for house price prediction  
+</div>
