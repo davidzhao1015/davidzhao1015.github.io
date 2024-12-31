@@ -33,12 +33,17 @@ If these terms feel familiar, great! If not, think of them as the building block
 ## Everyday Functionality: Importing Excel Files in Pandas
 
 ### Real-World Scenario: Metabolomics Data
-Imagine you're analyzing LC/MS metabolomics data from animal samples, with additional metadata. This was my experience at **The Metabolomics Innovation Center (TMIC)**, where I worked with a dataset containing:
+Imagine you're analyzing LC/MS metabolomics data from animal samples, with additional metadata. This was my experience at the research center, where I worked with a dataset containing:
 
 1. **Biomarker Assay Worksheet**: Measurements for over 100 metabolites.
-2. **Metadata Worksheet**: Sample information.
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/snapshot_biomarker_worksheet.png" class="img-fluid rounded z-depth-1" %}
+</div>
 
-**Goal**: Prepare these sheets for statistical analysis, starting by importing them into Python.
+1. **Metadata Worksheet**: Sample information.
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/snapshot_metadata_worksheet.png" class="img-fluid rounded z-depth-1" %}
+</div>
 
 ---
 
@@ -47,11 +52,25 @@ Imagine you're analyzing LC/MS metabolomics data from animal samples, with addit
 ### 1. Import Multiple Worksheets
 Start by loading a specific worksheet while skipping descriptive rows:
 ```python
+import pandas as pd 
+
 df_biomarker_assay = pd.read_excel(
     'example-biomarker-assay.xlsx',
     sheet_name='Biomarker assay',
     skiprows=11
 )
+```
+
+```
+>>> df_biomarker_assay.head()
+  Sample ID  Creatinine    Glycine     Alanine     Serine Histamine  ...  C16:1OH     C16OH     C18:2     C18:1       C18   C18:1OH
+0  LODs(uM)    0.443131   0.859107    0.340909   0.042433  0.013605  ...  0.04906  0.042617  0.058089  0.041081  0.023651  0.056784
+1         1   14.600000  51.600000  264.000000  65.100000     < LOD  ...    < LOD     < LOD     < LOD     < LOD     < LOD     < LOD
+2         2   14.000000  98.100000  338.000000  87.000000     < LOD  ...    < LOD     < LOD     < LOD     < LOD     < LOD     < LOD
+3         3   11.200000  92.000000  329.000000  74.500000     < LOD  ...    < LOD     < LOD     < LOD  0.045089     < LOD     < LOD
+4         4   11.600000  77.500000  200.000000  62.400000     < LOD  ...    < LOD     < LOD     < LOD   0.04134   0.02505     < LOD
+
+[5 rows x 144 columns]
 ```
 
 ### 2. Select Specific Rows and Columns
@@ -86,21 +105,14 @@ Inspect the first and last rows of your dataset to verify that the import matche
 ### 1. Formula-Generated Data
 Excel formulas, like those generating the â€œDaysâ€ column in the **Metadata** worksheet, retain their calculated values when imported:
 ```python
-df_metadata = pd.read_excel('example-metadata.xlsx', sheet_name='Metadata')
+df_metadata = pd.read_excel('example-biomarker-assay.xlsx', sheet_name='Metadata')
 ```
 
 ### 2. Filtered Data
-Filtered tables (e.g., showing only â€œGPFâ€ rows in Excel) are fully imported, including the hidden rows:
-```python
-df_filtered = pd.read_excel('filtered-example.xlsx', sheet_name='Filtered Data')
-```
+Filtered tables (e.g., showing only â€œGPFâ€ rows in Excel) are fully imported, including the hidden rows.
 
 ### 3. Binary Workbook Files (.xlsb)
-For `.xlsb` files, use the `pyxlsb` library:
-```python
-import pyxlsb
-df = pd.read_excel('example-binary-file.xlsb', engine='pyxlsb', sheet_name='Sheet1')
-```
+For `.xlsb` files, use the `pyxlsb` library to read the data.
 
 ---
 
