@@ -19,7 +19,7 @@ Ever struggled to import Excel data into Python for analysis? This post will gui
 ---
 
 ## Excel Data Essentials
-Excel is a go-to tool for managing and analyzing data. Letâ€™s refresh some key terms to ensure smooth communication:
+Excel is a go-to tool for managing and analyzing data. Let's refresh some key terms to ensure smooth communication:
 
 - **Workbook**: The entire Excel file.
 - **Worksheet**: Individual sheets (or tabs) within the workbook.
@@ -33,14 +33,14 @@ If these terms feel familiar, great! If not, think of them as the building block
 ## Everyday Functionality: Importing Excel Files in Pandas
 
 ### Real-World Scenario: Metabolomics Data
-Imagine you're analyzing LC/MS metabolomics data from animal samples, with additional metadata. This was my experience at the research center, where I worked with a dataset containing:
+Imagine you're analyzing LC/MS metabolomics data from animal samples, with additional metadata. This was my experience at the metabolomics research center, where I worked with a dataset containing:
 
 1. **Biomarker Assay Worksheet**: Measurements for over 100 metabolites.
 <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/snapshot_biomarker_worksheet.png" class="img-fluid rounded z-depth-1" %}
 </div>
 
-1. **Metadata Worksheet**: Sample information.
+2. **Metadata Worksheet**: Sample information.
 <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/snapshot_metadata_worksheet.png" class="img-fluid rounded z-depth-1" %}
 </div>
@@ -103,13 +103,13 @@ Inspect the first and last rows of your dataset to verify that the import matche
 ## Special Use Cases with Pandas
 
 ### 1. Formula-Generated Data
-Excel formulas, like those generating the â€œDaysâ€ column in the **Metadata** worksheet, retain their calculated values when imported:
+Excel formulas, like those generating the column in the **Metadata** worksheet, retain their calculated values when imported:
 ```python
 df_metadata = pd.read_excel('example-biomarker-assay.xlsx', sheet_name='Metadata')
 ```
 
 ### 2. Filtered Data
-Filtered tables (e.g., showing only â€œGPFâ€ rows in Excel) are fully imported, including the hidden rows.
+Filtered tables (e.g., showing only filtered rows in Excel) are fully imported, including the hidden rows.
 
 ### 3. Binary Workbook Files (.xlsb)
 For `.xlsb` files, use the `pyxlsb` library to read the data.
@@ -131,3 +131,10 @@ By following these steps, you'll efficiently prepare your data for analysis, no 
 Importing Excel files in Python doesn't have to be daunting. With a clear process, even the most complex datasets become manageable. Try these steps on your own files, and let me know how it goes!
 
 For any questions or advanced use cases, feel free to drop a comment or reach out. Happy coding! 
+
+---
+
+## References
+- [Excel file format](https://support.microsoft.com/en-us/office/file-formats-that-are-supported-in-excel-0943ff2c-6014-4e8d-aaea-b83d51d46247)
+- [Overview of Excel table](https://support.microsoft.com/en-us/office/overview-of-excel-tables-7ab0bb7d-3a9e-4b56-a3c9-6c94334e492c)
+- [Pandas API doc](https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html)
