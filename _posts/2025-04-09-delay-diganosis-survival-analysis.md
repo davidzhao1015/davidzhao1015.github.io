@@ -7,11 +7,12 @@ tags: survival-analysis; rare-disease; ASMD; python
 categories: statistics
 giscus_comments: false
 related_posts: false
+pretty_table: true  # this will enable the pretty table feature for this post.
 published: true
 ---
 
 
-# 1. Introduction: Why Survival Analysis?
+# Introduction: Why Survival Analysis?
 
 Rare diseases often come with a hidden burden—the **delay in diagnosis**. For patients with **acid sphingomyelinase deficiency (ASMD)**, a genetic disorder with highly variable onset and progression, the diagnostic journey can be long and uncertain. Those with **chronic neurovisceral ASMD (NPD A/B)** and **chronic visceral ASMD (NPD B)** may face **years** before receiving a definitive diagnosis, impacting their treatment options and long-term health outcomes.
 
@@ -19,27 +20,23 @@ But how long do these delays typically last? Can we **quantify** the diagnostic 
 
 This is where **survival analysis** comes in. By modeling **time-to-diagnosis**, we can estimate **median diagnostic timelines**, compare different patient subgroups, and even predict when a patient is most likely to receive a diagnosis based on their clinical history. In this article, I’ll walk through the **fundamentals of survival analysis** and share how I applied it to ASMD patient data using Python.
 
-You can explore the full notebook and dataset here to try the analysis yourself 🚀
+You can explore the full [notebook](https://github.com/davidzhao1015/survival-analysis-case-example/blob/main/survival-analysis-ASMD-example.ipynb) and [dataset](https://github.com/davidzhao1015/survival-analysis-case-example/blob/main/age-at-diagnosis-asmd.xlsx) to try the analysis yourself 🚀
 
 ## My Learning Journey in Survival Analysis
 
-### **Why I started exploring survival analysis**
+### Why I started exploring survival analysis
 
 I became interested in survival analysis because it answers a critical question:
-
 **How likely is an event (such as diagnosis) to occur at a given time point, considering different covariates?**
 
 This type of analysis is widely used in:
-
 •	**Disease progression modeling** – Understanding how long it takes for a condition to worsen.
-
 •	**Precision medicine** – Predicting patient outcomes based on medical history.
-
 •	**Clinical trials** – Estimating time-to-recovery, disease recurrence, or survival rates.
 
 Unlike conventional regression models, **survival analysis can handle censored data**—cases where the event of interest hasn’t occurred yet by the time of data collection. This makes it a powerful tool in both medical research and epidemiology.
 
-### **Key takeaways from my learning process**
+### Key takeaways from my learning process
 
 As I explored survival analysis, I focused on three major areas:
 
@@ -56,7 +53,7 @@ As I explored survival analysis, I focused on three major areas:
     - Interpreting model coefficients **in the context of a medical study**.
     - Creating **effective and insightful plots** to communicate results.
 
-### **How this method applies beyond ASMD**
+### How this method applies beyond ASMD
 
 While this case study focuses on **time-to-diagnosis in ASMD**, the approach can be generalized to many other scenarios:
 
@@ -64,7 +61,7 @@ While this case study focuses on **time-to-diagnosis in ASMD**, the approach can
 - The **parametric models** used in survival analysis can be adjusted for other medical research questions.
 - The **Python code** can be repurposed for different datasets with minimal modifications.
 
-### **What this post covers**
+### What this post covers
 
 In this blog post, I’ll share:
 
@@ -74,11 +71,11 @@ In this blog post, I’ll share:
 
 ✅ A **step-by-step case study** using ASMD diagnosis data.
 
-🚀 **For the full code and interactive analysis, check out my [Jupyter Notebook](https://www.notion.so/Modeling-Diagnostic-Delays-in-Rare-Disease-A-Survival-Analysis-Case-Study-in-Python-1d0f4a55ed8380cc8a3dd032cadc838d?pvs=21)**
+🚀 For the full code and interactive analysis, check out my [Jupyter Notebook](https://github.com/davidzhao1015/survival-analysis-case-example/blob/main/survival-analysis-ASMD-example.ipynb)
 
 Let’s dive in! 
 
-# 2. Fundamentals of Survival Analysis
+# Fundamentals of Survival Analysis
 
 ## What is survival analysis?
 
@@ -93,24 +90,16 @@ Traditional regression models struggle with these challenges, but survival model
 
 ## Key concepts explained simply
 
-**Censoring**
+**Censoring**: Not every subject in a study experiences the event of interest. Censoring allows us to **include incomplete observations**, making survival analysis more robust than conventional regression methods.
 
-Not every subject in a study experiences the event of interest. Censoring allows us to **include incomplete observations**, making survival analysis more robust than conventional regression methods.
-
-**Kaplan-Meier Curve**
-
-A **Kaplan-Meier curve** provides a visual representation of survival probabilities over time. It plots:
+**Kaplan-Meier Curve**: A **Kaplan-Meier curve** provides a visual representation of survival probabilities over time. It plots:
 
 - **Time (X-axis)** vs. **Probability of event-free survival (Y-axis)**.
 - It helps estimate how likely the event (e.g., diagnosis) will occur by a given time.
 
-**Log-Rank Test**
+**Log-Rank Test**: A statistical test used to **compare survival distributions** between two or more independent groups. For example, it helps determine whether patients with different ASMD subtypes experience significantly different diagnostic delays.
 
-A statistical test used to **compare survival distributions** between two or more independent groups. For example, it helps determine whether patients with different ASMD subtypes experience significantly different diagnostic delays.
-
-**Cox Proportional Hazards Model**
-
-A regression model that evaluates the **effect of multiple variables** on survival time. It helps answer questions like:
+**Cox Proportional Hazards Model**: A regression model that evaluates the **effect of multiple variables** on survival time. It helps answer questions like:
 
 - Do certain clinical factors increase or decrease the likelihood of earlier diagnosis?
 - How do different ASMD subtypes compare in terms of diagnostic delay?
@@ -123,11 +112,11 @@ If you’re new to survival analysis, these resources helped me grasp the fundam
 
 📖 **Python Documentation:** [Lifelines Survival Analysis Library](https://lifelines.readthedocs.io/)
 
-# 3. ASMD Case Study: Analyzing Time-to-Diagnosis
+# ASMD Case Study: Analyzing Time-to-Diagnosis
 
 ## Understanding the dataset
 
-For this analysis, the age-at-diagnosis data derived from a **scientific publication** by Cassiman et al. (2016) on ASMD patient outcomes [[source](https://www.sciencedirect.com/science/article/pii/S1096719216300580)].
+For this analysis, the age-at-diagnosis data derived from a [scientific publication](https://www.sciencedirect.com/science/article/pii/S1096719216300580) by Cassiman et al. (2016) on ASMD patient outcomes.
 
 Each row in the dataset represents an **individual patient**, with the following key variables:
 
@@ -146,22 +135,20 @@ One of the key challenges in studying **diagnostic delays in ASMD** is that diff
 
 Additionally, not all patients in the dataset have received a diagnosis at the time of study. These **“still undiagnosed”** cases are what we call **censored data**—we know that their diagnosis hasn’t happened yet, but we don’t know exactly when it will occur. Traditional regression models struggle to handle this type of incomplete data, which is where **survival analysis excels**.
 
-**Why Survival Analysis Works Here**
-
 - **Captures time-to-event data:** Instead of treating diagnosis as a simple yes/no outcome, survival analysis allows us to model **when** the diagnosis occurs.
 - **Handles censored data effectively:** Patients who haven’t been diagnosed yet aren’t excluded from the analysis—they are incorporated appropriately using survival functions.
 - **Compares different patient subgroups:** By applying Kaplan-Meier curves and Cox regression models, we can compare **diagnostic delays** between ASMD subtypes.
 
 By leveraging survival analysis, we can **estimate the probability of diagnosis over time**, understand which patients face the longest delays, and potentially identify clinical factors that contribute to earlier or later diagnosis.
 
-## Applying Kaplan-Meier & Cox models
+## Applying Survival Analysis to ASMD Data
 
-### Step-by-Step Survial Analysis in Python (Brief Summary)
+### Step-by-Step Survial Analysis in Python
 
 **🗃️ Data Loading and Exploration**
 
-•	Loaded age-at-diagnosis data from Excel using pandas.
-•	Each row represented a patient, with columns for age at diagnosis, event occurrence (diagnosed or not), and ASMD subtype indicators (AB, CH).
+- Loaded age-at-diagnosis data from Excel using pandas.
+- Each row represented a patient, with columns for age at diagnosis, event occurrence (diagnosed or not), and ASMD subtype indicators (AB, CH).
 
 ```python
 import pandas as pd
@@ -170,16 +157,21 @@ diagnosis_age_df = pd.read_excel("age-at-diagnosis-asmd.xlsx")
 diagnosis_age_df.head()
 ```
 
-Optional screenshot: a cropped table showing the first 5–10 rows of the dataset (especially with columns Time since birth, Diagnosis, AB, CH).
+| Time since birth (year) | Diagnosis | AB | CH |
+|-------------------------|-----------|----|----|
+| 0.10                    | 1         | 1  | 0  |
+| 0.28                    | 1         | 1  | 0  |
+| 0.36                    | 1         | 1  | 0  |
+| 0.45                    | 1         | 1  | 0  |
+| 0.45                    | 1         | 1  | 0  |
 
-📊 Kaplan-Meier Survival Curves
-•	Used lifelines’ KaplanMeierFitter to visualize survival (i.e., undiagnosed) probability over time.
-•	Stratified patients by subtype:
-•	Type B Adult: AB = 0, CH = 0
-•	Type B Child: AB = 0, CH = 1
-•	Type AB: AB = 1
 
-Code snippet:
+📊 **Kaplan-Meier Survival Curves**
+- Used lifelines’ KaplanMeierFitter to visualize survival (i.e., undiagnosed) probability over time.
+- Stratified patients by subtype:
+  - Type B Adult: AB = 0, CH = 0
+  - Type B Child: AB = 0, CH = 1
+  - Type AB: AB = 1
 
 ```python
 from lifelines import KaplanMeierFitter
@@ -207,10 +199,12 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 ```
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/survival_KM_curve.png" class="img-fluid rounded z-depth-1" %}
+</div>
+Figure 1. The Kaplan-Meier plot for the three subtypes (Type B Adult, Type B Child, Type AB)
 
-Screenshot: the Kaplan-Meier plot for the three subtypes (Type B Adult, Type B Child, Type AB)
-
-Key observations 
+Key observations:
 
 - Type AB and Type B Child are diagnosed early:
     - Steep drop in survival curves before age 5
@@ -222,10 +216,9 @@ Key observations
     - Distinct survival curves across groups
     - Statistically significant differences confirmed by log-rank test
 
-📈 Statistical Comparison
-•	Conducted a log-rank test to compare survival curves between subtypes and assess whether diagnostic delays differed significantly.
+📈 **Statistical Comparison**
 
-Code snippet:
+Conducted a log-rank test to compare survival curves between subtypes and assess whether diagnostic delays differed significantly.
 
 ```python
 from lifelines import WeibullFitter, ExponentialFitter, LogNormalFitter
@@ -249,19 +242,19 @@ plt.ylabel("Survival Probability")
 plt.tight_layout()
 plt.show()
 ```
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/survival_AIC.png" class="img-fluid rounded z-depth-1" %}
+</div>
+Figure 2. The survival functions overlaid with AIC values.
 
-Screenshot: The survival functions overlaid with AIC values.
+🧮 **Parametric Model Fitting**
+- Fit various models including Weibull, Log-Normal, Exponential, Log-Logistic, and Generalized Gamma.
+- Compared model fit using AIC (Akaike Information Criterion).
+- Selected Log-Normal AFT as the best-performing model.
 
-🧮 Parametric Model Fitting
-•	Fit various models including Weibull, Log-Normal, Exponential, Log-Logistic, and Generalized Gamma.
-•	Compared model fit using AIC (Akaike Information Criterion).
-•	Selected Log-Normal AFT as the best-performing model.
-
-🔍 Prediction by Subtype
-•	Applied the best model to predict survival (undiagnosed) probability curves for each subtype across a 0–100 year timespan.
-•	Visualized predictions with subtype-specific curves—helpful for clinicians and researchers interpreting diagnosis timelines.
-
-Code snippet:
+🔍 **Prediction by Subtype**
+- Applied the best model to predict survival (undiagnosed) probability curves for each subtype across a 0–100 year timespan.
+- Visualized predictions with subtype-specific curves—helpful for clinicians and researchers interpreting diagnosis timelines.
 
 ```python
 from lifelines import LogNormalAFTFitter
@@ -282,13 +275,10 @@ plt.xlabel("Time since birth (year)")
 plt.ylabel("Survival Probability")
 plt.show()
 ```
-
-Screenshot: The predicted survival function showing how diagnosis probability changes by subtype.
-
-📓 See the Full Notebook
-
-You can explore the full analysis—including code, plots, and model output—in my shared notebook (PDF format):
-👉 Download the full notebook here: survival-analysis-ASMD-example.pdf
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/survival_prediction.png" class="img-fluid rounded z-depth-1" %}
+</div>
+Figure 3. The predicted survival function showing how diagnosis probability changes by subtype.
 
 ## Findings & Implications
 
@@ -303,21 +293,21 @@ Here are some key lessons I gained while working through this survival analysis 
 What I Learned About Survival Analysis
 
 - There are three major categories of survival models:
-- Non-parametric (e.g., Kaplan-Meier): flexible, assumption-free, and good for descriptive analysis
-- Parametric (e.g., Weibull, Log-Normal): useful for prediction and interpretation when assumptions are met
-- Semi-parametric (e.g., Cox regression): interpretable and flexible for covariates, without requiring full distributional assumptions
+  - Non-parametric (e.g., Kaplan-Meier): flexible, assumption-free, and good for descriptive analysis
+  - Parametric (e.g., Weibull, Log-Normal): useful for prediction and interpretation when assumptions are met
+  - Semi-parametric (e.g., Cox regression): interpretable and flexible for covariates, without requiring full distributional assumptions
 - AIC (Akaike Information Criterion) is a valuable tool for selecting the best-fit model among several options.
 - When visualizing survival curves with lifelines, it’s helpful to:
-- Include 95% confidence intervals to convey uncertainty
-- Display at-risk tables to show how many events (diagnoses or censored cases) are observed over time
+  - Include 95% confidence intervals to convey uncertainty
+  - Display at-risk tables to show how many events (diagnoses or censored cases) are observed over time
 
 Practical Challenges and How I Overcame Them
 
 - Survival analysis differs conceptually from typical regression. Grasping its unique assumptions and knowing how to interpret coefficients was essential to making sense of the results.
 - Implementing survival models in Python involved trial and error. I relied on:
-- lifelines documentation
-- Reproducing basic examples
-- Experimentation and patience when adapting methods to real-world data, which is often messier than toy examples
+  - lifelines documentation
+  - Reproducing basic examples
+  - Experimentation and patience when adapting methods to real-world data, which is often messier than toy examples
 
 Tips for Beginners
 
