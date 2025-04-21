@@ -121,7 +121,7 @@ eu_avg_consumption_COVID_death_pop_df = eu_avg_consumption_country.merge(COVID_d
 eu_avg_consumption_COVID_death_pop_df.head()   
 ```
 
-****The frist rows in the merged dataset:
+The frist rows in the merged dataset:
 
 ```python
 
@@ -135,6 +135,7 @@ Country	Average Consumption	Year	Population	Deaths	Death Rate
 ```
 
 **🌍 3. Add Country Codes for Mapping**
+
 Using pycountry, we convert country names to ISO 3-letter codes so they can be matched to the map:
 
 ```python
@@ -214,9 +215,6 @@ for country in eu_countries:
  print(country_alpha3)
 ```
 
-Example output: 
-`{'France': 'FRA', 'Czechia': 'CZE', 'Germany': 'DEU', 'Estonia': 'EST', 'Latvia': 'LVA', 'Sweden': 'SWE', 'Finland': 'FIN', 'Belgium': 'BEL', 'Romania': 'ROU', 'Hungary': 'HUN', 'Poland': 'POL', 'United Kingdom': 'GBR', 'Greece': 'GRC', 'Austria': 'AUT', 'Netherlands': 'NLD', 'Croatia': 'HRV', 'Slovenia': 'SVN', 'Bulgaria': 'BGR', 'Montenegro': 'MNE', 'Bosnia and Herzegovina': 'BIH', 'Portugal': 'PRT'}`
-
 Together, these two steps make it possible to visualize complex health and nutrition data on an interactive world map! 
 
 ---
@@ -245,6 +243,7 @@ food_map = px.choropleth(
 </div>
 
 **Bubble Overlay – COVID-19 mortality rates by countriescountries**
+
 We then add circle markers to indicate COVID-19 mortality rates per country. Bigger bubbles = more intake.
 
 ```python
@@ -391,6 +390,7 @@ fig.add_trace(country_labels)
 Explore the full interactive version on [GitHub](https://davidzhao1015.github.io/plotly-bubble-choropleth/).
 
 **Exporting the Map (Optional)**
+
 Want to save your plot as an image or HTML? Use:
 
 ```python
