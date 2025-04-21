@@ -24,8 +24,6 @@ This post shows how to combine two variables on a single map using a dual-layer 
 
 In 2020, a [preprint](https://www.medrxiv.org/content/10.1101/2020.07.06.20147025v1) suggested that **fermented vegetable consumption** might be inversely associated with **COVID-19 mortality** in Europe—even after adjusting for confounding factors. I wanted to explore that hypothesis using public data and an interactive map.
 
----
-
 <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/snapshort_final_map.png" class="img-fluid rounded z-depth-1" %}
 </div>
@@ -34,11 +32,11 @@ This interactive map overlays fermented food intake (bubbles) on COVID-19 death 
 
 ---
 
-## 📦 Quick Start
+## 📦 **Quick Start**
 
 1. Install dependencies 
 2. Download the dataset ([link](https://github.com/davidzhao1015/plotly-bubble-choropleth/tree/main/input_csv))
-3. Run the notebook ([link](https://hub.2i2c.mybinder.org/user/davidzhao1015-p-bble-choropleth-cx8i7dbv/doc/tree/interactive-map-covid-fermented-food_v3.ipynb))
+3. Run the notebook [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/davidzhao1015/plotly-bubble-choropleth/main?urlpath=%2Fdoc%2Ftree%2Finteractive-map-covid-fermented-food_v3.ipynb)
 4. Explore the interactive map
 
 ---
@@ -242,7 +240,7 @@ food_map = px.choropleth(
         {% include figure.liquid loading="eager" path="assets/img/snapshot_choropleth_map_fermented_food.png" class="img-fluid rounded z-depth-1" %}
 </div>
 
-**Bubble Overlay – COVID-19 mortality rates by countriescountries**
+## **Bubble Overlay – COVID-19 mortality rates**
 
 We then add circle markers to indicate COVID-19 mortality rates per country. Bigger bubbles = more intake.
 
@@ -266,19 +264,19 @@ bubble_map = px.scatter_geo(data_map_2020,
         {% include figure.liquid loading="eager" path="assets/img/snapshot_bubble_map_COVID.png" class="img-fluid rounded z-depth-1" %}
 </div>
 
-**Combine Both Layers**
+## **Combine Both Layers**
 
 ```python
 # Combine both layers
 fig = go.Figure(data=food_map.data + bubble_map.data)
 ```
 
-### **🎯 Why These Steps Matter**
+**Why These Steps Matter**
 
 This combination allows us to visualize two variables on the same map:
 
-- 💀 Red shading = how bad COVID-19 outcomes were
-- 🥬 Bubble size = how much fermented food people eat
+- Red shading = how much fermented food people eat
+- Bubble size = how bad COVID-19 outcomes were
 
 It opens up exploratory insights like:
 
@@ -344,14 +342,14 @@ fig.update_layout(
 )
 ```
 
-These tweaks:
+**These tweaks:**
 
 - Geographic layout
 - Colorbar customization
 - Title configuration
 - Additional colorbar adjustment
 
-**Annotate country names to the map**
+## **Annotate country names to the map**
 
 To make the map more professional-looking and easier to interpret, we apply layout settings:
 
@@ -389,7 +387,7 @@ fig.add_trace(country_labels)
 
 Explore the full interactive version on [GitHub](https://davidzhao1015.github.io/plotly-bubble-choropleth/).
 
-**Exporting the Map (Optional)**
+## **Exporting the Map**
 
 Want to save your plot as an image or HTML? Use:
 
@@ -405,11 +403,11 @@ Together, these finishing touches elevate your map from “functional” to “i
 
 ---
 
-### **📖 What Does the Map Tell Us?**
+## **What Does the Map Tell Us?**
 
 As we zoom into this interactive map, a few patterns emerge:
 
-- Countries like France and Germany — with relatively high intake of fermented vegetables — show noticeably lower COVID-19 mortality in this 2020 dataset.
+- Countries like Hungary and Romania — with relatively high intake of fermented vegetables — show noticeably lower COVID-19 mortality in this 2020 dataset.
 - On the other hand, countries with lower fermented food consumption, such as the UK or Belgium, show higher death rates.
 - While this map doesn’t prove causality, it does support the hypothesis from [the original study] that dietary habits might influence immune resilience — a fascinating intersection of public health and nutrition.
 
