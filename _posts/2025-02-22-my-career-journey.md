@@ -9,6 +9,10 @@ related_posts: false
 published: true
 ---
 
+<div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/career-transform-infographics.png" class="img-fluid rounded z-depth-1" %}
+</div>
+
 ## **Introduction**
 
 Have you ever considered how embracing a new skill set could transform your career?
