@@ -12,7 +12,8 @@ published: true
 ---
 
 > **How much can you trust a number when dealing with rare events?**
-In statistics, it’s not just about getting an estimate — it’s about knowing how uncertain that estimate really is.
+> 
+> In statistics, it’s not just about getting an estimate — it’s about knowing how uncertain that estimate really is.
 > 
 
 ## **Introduction**
@@ -87,7 +88,12 @@ Building on insights from Brown et al., here’s a practical overview of the Wal
 
 - **Formula:**
     
-    $\hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$
+    $$
+    \hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
+    $$
+
+    <!-- where $\hat{p}$ is the sample proportion, $n$ is the sample size, and $z_{\alpha/2}$ is the critical value from the standard normal distribution for a given confidence level.
+    For a 95% CI, $z_{\alpha/2} \approx 1.96$. -->
     
 - **Summary:**
     
@@ -102,7 +108,13 @@ Building on insights from Brown et al., here’s a practical overview of the Wal
 
 - **Formula:**
     
-    $\frac{\hat{p} + \frac{z^2}{2n} \pm z \sqrt{ \frac{\hat{p}(1 - \hat{p})}{n} + \frac{z^2}{4n^2} }}{1 + \frac{z^2}{n}}$
+    $$
+    \frac{\hat{p} + \frac{z^2}{2n} \pm z \sqrt{ \frac{\hat{p}(1 - \hat{p})}{n} + \frac{z^2}{4n^2} }}{1 + \frac{z^2}{n}}
+    $$
+
+    <!-- where $\hat{p}$ is the sample proportion, $n$ is the sample size, and $z$ is the critical value from the standard normal distribution for a given confidence level.
+    For a 95% CI, $z \approx 1.96$.
+    The denominator ensures the interval remains within [0,1]. -->
     
 - **Summary:**
     
@@ -119,7 +131,13 @@ Building on insights from Brown et al., here’s a practical overview of the Wal
     
     Based on Beta posterior:
     
-    $\text{Beta}(X+0.5, n-X+0.5)$
+    $$
+    \text{Beta}(X+0.5, n-X+0.5)
+    $$
+
+    <!-- where $X$ is the number of successes (cases), and $n$ is the sample size.
+    The equal-tailed interval is derived from the quantiles of the Beta distribution.
+    For a 95% CI, the lower and upper bounds are calculated using the quantiles of the Beta distribution. -->
     
 - **Summary:**
     
@@ -216,13 +234,16 @@ This setup allows us to explore an important practical question:
 > 
 
 ---
+
+### **Coverage Probability**
+
 <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/barplot_coverage_facet.png" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/barplot_coverage_facet_tall.png" class="img-fluid rounded z-depth-1" %}
 </div>
 
 The figure above shows how the coverage probability varies across different sample sizes and true proportions for the three methods: Wald, Wilson, and Jeffreys. The dashed red line marks the target 95% coverage.
 
-### **Key Observations:**
+#### **Key Observations:**
 
 - **Jeffreys Method:**
     - Jeffreys consistently maintains or exceeds 95% coverage across all combinations of sample sizes and true proportions.
@@ -237,7 +258,7 @@ The figure above shows how the coverage probability varies across different samp
     - At very low true proportions (e.g., 0.005 or lower), even increasing sample size to 1000 does not fully rescue the Wald method.
     - Only with very large sample sizes (n=30,000) and higher true proportions (e.g., 0.02) does Wald approach acceptable coverage.
 
-### **Additional Nuances:**
+#### **Additional Nuances:**
 
 - **Effect of True Proportion:**
     - Lower true proportions (e.g., 0.0005, 0.001) make it harder for methods to maintain ideal coverage, especially noticeable for Wald and, to a lesser extent, Wilson.
@@ -245,21 +266,25 @@ The figure above shows how the coverage probability varies across different samp
 - **Effect of Sample Size:**
     - Larger sample sizes systematically improve coverage for all methods, but Wald still lags behind unless the sample size is very large.
 
-### **Practical Implications:**
+#### **Practical Implications:**
 
 - **Jeffreys method** is the most dependable choice for rare event settings where preserving nominal confidence levels is crucial.
 - **Wilson method** is a strong practical alternative, especially in moderate-to-large sample settings, offering better behavior than Wald.
 - **Wald method** should generally be avoided for rare disease applications unless working with extremely large cohorts and relatively higher event proportions.
 
+---
+
+### **Average Confidence Interval Width**
+
 <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/barplot_precision_facet.png" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/barplot_precision_facet.png" class="img-fluid rounded z-depth-1" %}
 </div>
 
 95% CI width by methods controlling for the sample sizes and true proportions 
 
 The figure above illustrates the average length of 95% confidence intervals across different sample sizes and true proportions, comparing the Wald, Wilson, and Jeffreys methods.
 
-### **Key Observations:**
+#### **Key Observations:**
 
 - **Wald Method:**
     - Wald consistently produces the narrowest confidence intervals across all settings.
