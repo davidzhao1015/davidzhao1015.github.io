@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Comparing Methods for Estimating 95% Confidence Intervals of Proportions: Wald, Wilson, and Equal-Tailed Jeffreys Prior"
-date: 2025-03-25
+date: 2025-04-01
 description: 
 tags: confidence-intervals, statistics, proportions, methods-comparison
 categories: statistics
