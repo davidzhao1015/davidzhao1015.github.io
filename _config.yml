@@ -135,9 +135,9 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: EpiGenomics Explorer # blog_name will be displayed in your blog page
+blog_name: EpiBiome Analytics # blog_name will be displayed in your blog page
 blog_description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  This blog delves into the intersection of genomics, public health, and bioinformatics, offering insights, tutorials, and case studies that reveal how genomic data can drive public health strategies and advance personalized medicine.
+  Data-Driven Insights at the Intersection of Microbiome and Public Health
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
