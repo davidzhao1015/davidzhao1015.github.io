@@ -28,6 +28,8 @@ You’ll learn how to:
 
 Whether you’re working on a burden-of-disease model, HTA submission, or just exploring rare disease analytics, this post will give you a reproducible template to start from.
 
+The reusable Python notebook is available at [here](https://github.com/davidzhao1015/rebuild-age-distribution/blob/main/onset-age-dist-construction-AIE.ipynb)
+
 ---
 
 ## Step 1: Background and Input Data
