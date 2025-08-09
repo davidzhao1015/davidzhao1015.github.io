@@ -13,24 +13,18 @@ toc:
   sidebar: right
 ---
 
-## Problem/Aim
+
+## **Problem**
+---
 
 In microbiome data analysis, taxonomy assignments—derived from marker genes or whole genomes—are essential for understanding microbial ecosystems when paired with abundance data. These assignments are not limited to single taxon names but are structured as hierarchical lineages across multiple taxonomic ranks, offering richer biological insights. However, researchers often only have partial taxonomy data (e.g., names at a single rank), which limits interpretability and analytical depth.
 
-## Solution
-
+## **Solution**
+---
 To unlock the full potential of taxonomy-based insights, incomplete taxon names can be mapped to their complete hierarchical lineages by retrieving standardized taxonomy data from the NCBI database. This approach enriches the dataset and supports more robust biological interpretation.
 
-## Basic concepts
-
-Bacteria taxonomy lineage
-
-NCBI taxonomy database
-
-NCBI E-utilities API
-
 ## **Solution Implementation**
-
+---
 To retrieve full taxonomy lineages, one can use either the NCBI Taxonomy web browser or a programmatic method. The programmatic approach is highly efficient and advantageous, allowing automation of repetitive retrieval for multiple taxa at once. The NCBI E-utilities Python API enables access to the web server directly from Python scripts, integrating seamlessly with other steps in a microbiome data analysis pipeline.
 
 This section includes two parts:
@@ -38,12 +32,11 @@ This section includes two parts:
 1. A reusable function to download and parse the full taxonomy lineage for a given taxon at a single rank.
 2. An example demonstrating how to apply this function to multiple taxa, using a food fermentation microbiome dataset as a case study.
 
-### **Reusable Script**
+### Reusable Script
 
 The customizable function below retrieves the full lineage using the Bio.Entrez.esearch(), Bio.Entrez.efetch(), and Bio.Entrez.read() functions from the **Bio.Entrez** submodule in the Biopython package.
 
 The input is a taxon string at a given rank, and the output is a list of taxa from higher to lower ranks. You can use this function as is or adapt it for your specific needs.
-
 
 ```python
 from Bio import Entrez
@@ -121,8 +114,7 @@ def get_taxonomy_lineage(taxon_name: str, rank: str = "Genus") -> list | None:
     return lineage_list
 ```
 
-### **Example**
-
+### Example
 The example demonstrates applying the function to multiple bacterial taxa using loop iteration in Python, maximizing the efficiency of the Python API. You can adapt the code by replacing it with your own input data.
 
 ```python
@@ -160,7 +152,15 @@ for genus in genera:
         print(f"Error processing genus {genus}: {e}")
 ```
 
-The first rows of the output data table is as follows. 
+The first rows of the output table is as below.
 
-### Reference
-[NCBI taxonomy database help document](https://www.ncbi.nlm.nih.gov/books/NBK53758/)
+|   | Domain   | Kingdom         | Phylum           | Class                 | Order              | Family             | Genus              |
+|---|----------|----------------|------------------|-----------------------|--------------------|--------------------|--------------------|
+| 0 | Bacteria | Pseudomonadati | Pseudomonadota   | Alphaproteobacteria   | Acetobacterales    | Acetobacteraceae   | Acetobacter        |
+| 1 | Bacteria | Pseudomonadati | Pseudomonadota   | Alphaproteobacteria   | Acetobacterales    | Acetobacteraceae   | Gluconacetobacter  |
+| 2 | Bacteria | Bacillati      | Bacillota        | Bacilli               | Bacillales         | Bacillaceae        | Lentibacillus      |
+| 3 | Bacteria | Bacillati      | Actinomycetota   | Actinomycetes         | Micrococcales      | Brevibacteriaceae  | Brevibacterium     |
+| 4 | Bacteria | Pseudomonadati | Pseudomonadota   | Gammaproteobacteria   | Enterobacterales   | Erwiniaceae        | Erwinia            |
+
+
+
