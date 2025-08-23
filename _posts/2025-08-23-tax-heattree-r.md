@@ -29,9 +29,9 @@ For this example, I used a dataset curated from the [review](https://pubmed.ncbi
 
 One particularly interesting table in the review maps these 30+ bacterial genera to 115 types of fermented foods from around the world. That inspired me to create a family-focused heat tree to visualize the biodiversity of bacteria involved in fermentation.
 
-<div class="col-sm mt-3 mt-md-0">
+<!-- <div class="col-sm mt-3 mt-md-0">
     {% include figure.liquid loading="eager" path="assets/img/Periodic table of fermented foods.png" class="img-fluid rounded z-depth-1" %}
-</div>
+</div> -->
 
 Gathering detailed metadata for a perfectly accurate tree takes time, so for now, I worked with aggregated data — specifically, the proportion of fermented food types linked to each genus. While metacoder can integrate numeric data into heat trees, I found that it generated a misleading legend in this case. To keep the visualization clear, I’ve chosen not to display numeric values on the plot. Instead, I’ll describe the distribution of key bacterial families in the text alongside the visualization.
 
