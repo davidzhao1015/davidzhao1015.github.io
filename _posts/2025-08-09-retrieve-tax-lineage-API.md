@@ -1,42 +1,41 @@
 ---
 layout: post
-title: "How to Retrieve full taxonomy lineage based on a certain rank from NCBI taxonomy database using Python API"
+title: "Retrieving Full Taxonomy Lineage from NCBI with Python"
 date: 2025-08-09
 description: 
 tags: taxonomy, microbiome, biopython, ncbi-api
 categories: bioinformatics
 giscus_comments: false
 related_posts: false
-pretty_table: true  # this will enable the pretty table feature for this post.
+pretty_table: true
 published: true
-toc:
-  sidebar: right
+# toc:
+#   sidebar: right
 ---
 
 
-## **Problem**
----
+## Problem
 
-In microbiome data analysis, taxonomy assignments—derived from marker genes or whole genomes—are essential for understanding microbial ecosystems when paired with abundance data. These assignments are not limited to single taxon names but are structured as hierarchical lineages across multiple taxonomic ranks, offering richer biological insights. However, researchers often only have partial taxonomy data (e.g., names at a single rank), which limits interpretability and analytical depth.
+In microbiome data analysis, taxonomy assignments—derived from marker genes or whole genomes—are essential for understanding microbial ecosystems when paired with abundance data. These assignments are not limited to single taxon names but are structured as hierarchical lineages across multiple taxonomic ranks, offering richer biological insights. However, researchers often only have partial taxonomy data (e.g., names at a single rank), which limits interpretability and analytical depth.<br><br>
 
-## **Solution**
----
-To unlock the full potential of taxonomy-based insights, incomplete taxon names can be mapped to their complete hierarchical lineages by retrieving standardized taxonomy data from the NCBI database. This approach enriches the dataset and supports more robust biological interpretation.
+## Solution
 
-## **Background**
+To unlock the full potential of taxonomy-based insights, incomplete taxon names can be mapped to their complete hierarchical lineages by retrieving standardized taxonomy data from the NCBI database. This approach enriches the dataset and supports more robust biological interpretation.<br><br>
 
-The **NCBI Taxonomy** is the official nomenclature and classification resource for the **International Nucleotide Sequence Database Collaboration (INSDC)**, which includes GenBank, EMBL, and DDBJ. It provides curated organism names and an approximately phylogenetic classification for all source organisms represented in INSDC records, serving as a framework for linking resources within NCBI and to external taxon-specific information. Names are selected by NCBI curators based on published taxonomic data and expert opinion, ensuring a single current name is assigned to each taxon. The database focuses on nomenclature and systematics rather than detailed taxon descriptions.
+## Background
 
-## **Solution Implementation**
----
+The **NCBI Taxonomy** is the official nomenclature and classification resource for the **International Nucleotide Sequence Database Collaboration (INSDC)**, which includes GenBank, EMBL, and DDBJ. It provides curated organism names and an approximately phylogenetic classification for all source organisms represented in INSDC records, serving as a framework for linking resources within NCBI and to external taxon-specific information. Names are selected by NCBI curators based on published taxonomic data and expert opinion, ensuring a single current name is assigned to each taxon. The database focuses on nomenclature and systematics rather than detailed taxon descriptions.<br><br>
+
+## Solution implementation
+
 To retrieve full taxonomy lineages, one can use either the NCBI Taxonomy web browser or a programmatic method. The programmatic approach is highly efficient and advantageous, allowing automation of repetitive retrieval for multiple taxa at once. The NCBI E-utilities Python API enables access to the web server directly from Python scripts, integrating seamlessly with other steps in a microbiome data analysis pipeline.
 
 This section includes two parts:
 
 1. A reusable function to download and parse the full taxonomy lineage for a given taxon at a single rank.
-2. An example demonstrating how to apply this function to multiple taxa, using a food fermentation microbiome dataset as a case study.
+2. An example demonstrating how to apply this function to multiple taxa, using a food fermentation microbiome dataset as a case study.<br><br>
 
-### Reusable Script
+### Reusable script
 
 The customizable function below retrieves the full lineage using the Bio.Entrez.esearch(), Bio.Entrez.efetch(), and Bio.Entrez.read() functions from the **Bio.Entrez** submodule in the Biopython package.
 
@@ -192,16 +191,17 @@ The first rows of the output table is as below.
 | 3 | Bacteria | Bacillati      | Actinomycetota   | Actinomycetes         | Micrococcales      | Brevibacteriaceae  | Brevibacterium     |
 | 4 | Bacteria | Pseudomonadati | Pseudomonadota   | Gammaproteobacteria   | Enterobacterales   | Erwiniaceae        | Erwinia            |
 
+<br>
 
-## **Conclusion**
+## Conclusion
 
 Taxonomic lineage information provides far more value than a single taxon name, especially in microbiome data analysis, where biological context is key. By programmatically retrieving complete lineages from NCBI’s Taxonomy database, researchers can enrich partial datasets, standardize taxonomic ranks, and gain deeper ecological insights without manual lookups.
 
 This workflow demonstrates how a few lines of Python, combined with the Bio.Entrez API, can turn scattered names into structured, multi-rank taxonomy data. Whether you are refining microbial community analyses or preparing results for publication, automating taxonomy retrieval not only saves time but also ensures reproducibility and accuracy.
 
-If you often work with incomplete taxonomy data, integrating such an automated retrieval step into your pipeline is a small effort with a high return in both interpretability and research efficiency.
+If you often work with incomplete taxonomy data, integrating such an automated retrieval step into your pipeline is a small effort with a high return in both interpretability and research efficiency.<br><br>
 
 
 ### Reference
-NCBI help [document](https://www.ncbi.nlm.nih.gov/books/NBK53758/)
-Bio.Entrez [document](https://biopython.org/docs/latest/Tutorial/chapter_entrez.html?utm_source=chatgpt.com)
+[NCBI help](https://www.ncbi.nlm.nih.gov/books/NBK53758/)  
+[Bio.Entrez](https://biopython.org/docs/latest/Tutorial/chapter_entrez.html?utm_source=chatgpt.com)
