@@ -3,7 +3,7 @@ layout: post
 title: "Parametric Survival Fit & PSA for Age-at-Onset in Autoimmune Disease: Generalized Gamma Workflow"
 date: 2025-11-15
 description:
-tags: epidemiology, health-economy, rare-disease
+tags: sensitivity-analysis, survival-model, epi, health-economy
 categories: bioinformatics
 giscus_comments: false
 related_posts: false
@@ -146,9 +146,21 @@ This confirms that the generalized gamma model aligns well with both the median 
 
 ### 4.1 Why PSA?
 
-Health economic and epidemiological models require not only point estimates but also **credible intervals**, especially when clinical evidence is sparse.
+Health economic and epidemiological models require not only point estimates but also credible intervals, especially when clinical evidence is sparse.
 
-Parameter uncertainty in the fitted model must therefore be propagated to all downstream quantities.<br><br>
+Parameter uncertainty in the fitted model must therefore be propagated to all downstream quantities.
+
+The overarching goal is to generate randomly sampled, correlated parameter sets that reflect the plausible variance and covariance structure of the original fitted models for PSA.
+
+The conceptual procedures are as follows,
+
+1.	Identify the model parameters
+2.	Build the variance–covariance matrix
+3.	Calculate the Cholesky factor
+4.	Generate random noise using MVN
+5.	Apply the Cholesky factor to preserve correlations
+6.	Compute the final random parameter draws
+7.	Use the sampled parameters in the survival model<br>
 
 ### 4.2 Building the Variance-Covariance Matrix
 
