@@ -538,9 +538,11 @@ div#ipython-main-app.container {
 }
 
 .container {
-  width: 980px;
+  /* width: 980px;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: auto; */
+  max-width: 1200px;
+  width: 100%;
 }
 
 div#menubar-container {
