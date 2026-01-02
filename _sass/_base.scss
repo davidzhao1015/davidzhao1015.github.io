@@ -680,6 +680,47 @@ footer.sticky-bottom {
   }
 }
 
+// Latest posts section styling
+.post article {
+  h2 {
+    /* Font Size */
+    font-size: 1.5rem;          // Default is usually 2rem, adjust as needed
+    
+    /* Font Weight */
+    font-weight: 600;           // 300=light, 400=normal, 500=medium, 600=semibold, 700=bold
+    
+    /* Font Family */
+    font-family: 'Roboto Slab', serif;
+    // font-family: 'Roboto', sans-serif;
+    // font-family: inherit;
+    
+    /* Text Transform */
+    text-transform: lowercase;  // lowercase, uppercase, capitalize, none
+    
+    /* Letter Spacing */
+    letter-spacing: 0.5px;
+    
+    /* Color */
+    color: var(--global-text-color);
+    // color: var(--global-theme-color);
+    
+    /* Spacing */
+    margin-top: 0rem;           // Space above heading
+    margin-bottom: 1.5rem;      // Space below heading
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      
+      &:hover {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
+
+
 .hero-tagline {
   font-size: 1.18rem;
   font-weight: 400;
