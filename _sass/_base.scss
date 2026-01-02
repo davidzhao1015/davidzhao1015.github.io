@@ -558,9 +558,27 @@ footer.sticky-bottom {
   }
 
   h2 {
-    font-size: 1.5rem;
-    color: grey;
-  }  
+    font-size: 1.2rem;          // ADJUST THIS - currently 1.5rem
+    color: black;
+    font-weight: 450;           // Add weight control
+    line-height: 1.6;           // Add line height
+    margin-top: 0.5rem;         // Add spacing above
+    max-width: 700px;           // Limit width
+    margin-left: auto;          // Center it
+    margin-right: auto;         // Center it
+    margin-bottom: 2rem;         // Remove bottom margin
+  }
+}
+
+.header-bar .blog-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 44rem;
+  width: 100%;
+  margin: 1rem auto 0;
+  color: darkgray;
+  font-weight: 400;
+  text-align: left;
 }
 
 .tag-category-list {
