@@ -137,7 +137,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 blog_name: EpiBiome Analytics # blog_name will be displayed in your blog page
 blog_description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Data-Driven Insights at the Intersection of Microbiome and Public Health<br><br>
+  Applied methods and defensible analysis at the intersection of microbiome and public health<br><br>
 
   This blog focuses on the practical side of applied biomedical data analysis, including study design, power analysis, uncertainty, and modeling workflows.
   Most posts are written with graduate students and early-career analysts in mind, and aim to make complex methods transparent, defensible, and reusable.
