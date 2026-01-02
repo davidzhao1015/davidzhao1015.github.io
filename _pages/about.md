@@ -17,8 +17,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
- David has extensive experience in microbiome research, bioinformatics, and epidemiology, with a strong background in food microbiology that enriches his understanding of microbial ecology and public health. 
- 
- Leveraging his proficiency in R, Python, and Unix, he bridges microbiology and epidemiology with computational biology to contribute valuable data analysis for public health and biotech solutions.
+Defensible, decision-ready analysis for complex biomedical data.
+Helping researchers and early HEOR analysts make sense of microbiome and epidemiological data.
 
 
