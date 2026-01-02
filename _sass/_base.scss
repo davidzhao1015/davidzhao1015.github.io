@@ -753,11 +753,15 @@ footer.sticky-bottom {
   margin-bottom: 40px;
   padding: 0;
 
+  max-width: 46rem;     /* target: 42–46rem */
+  margin: 0 auto 40px;  /* center within page */
+  padding: 0;           /* keep existing reset */
+
   li {
     border-bottom: 1px solid var(--global-divider-color);
     list-style: none;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
 
     .post-meta {
       color: var(--global-text-color-light);
