@@ -198,26 +198,63 @@ ul.task-list input[type="checkbox"] {
   .more-info {
     margin-bottom: 5px;
     margin-top: 5px;
-    font-family: monospace;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 400;
+
+    /* Font Style */
+    font-style: normal;          // normal or italic
+    
+    /* Letter Spacing */
+    letter-spacing: 0.3px;       // Adjust spacing between letters
+    
+    /* Line Height */
+    line-height: 1.4;            // Spacing between lines
+    
+    /* Text Color */
+    color: var(--global-text-color);
+    // color: var(--global-text-color-light);  // Lighter/subtle color
+    
+    /* Text Transform */
+    text-transform: none;        // none, uppercase, lowercase, capitalize
+
 
     p {
-      display: inline-block;
-      margin: 0;
+    display: block;
+    margin: 0;
+    white-space: nowrap;        // Prevent line wrapping
+    // overflow: hidden;           // Hide overflow if too long
+    text-overflow: ellipsis;    // Add ... if text is too long (optional)
+  }
+
+   // Target specifically the third paragraph (Edmonton, Canada)
+    p:nth-child(3) {
+      font-size: 0.85rem;                    // Smaller size
+      font-weight: 300;                       // Lighter weight
+      font-style: italic;                     // Italic
+      color: var(--global-text-color-light); // Lighter color
+      opacity: 0.8;                       // Slightly faded
+      // letter-spacing: 0.5px;               // More spacing
+      // text-transform: uppercase;           // UPPERCASE
+      // margin-top: 0.3rem;                  // Add space above
     }
   }
 }
 
 .profile.float-right {
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 .profile.float-left {
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
+
+
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    width: 25%;
 
     .address {
       p {
@@ -550,6 +587,107 @@ footer.sticky-bottom {
     display: unset;
   }
 }
+
+// Homepage title customization
+.post-header {
+  text-align: left;  // center, left, right
+  margin-bottom: 0rem;
+
+  .post-title {
+    /* Font Size */
+    font-size: 2.6rem;                    // Default is ~2.5rem, adjust as needed
+    
+    /* Font Family */
+    font-family: 'Roboto Slab', serif;  // Options below
+    // font-family: 'Roboto', sans-serif;
+    // font-family: 'Georgia', serif;
+    // font-family: inherit;              // Use default
+    
+    /* Font Weight */
+    font-weight: 600;                   // 300=light, 400=normal, 500=medium, 700=bold, 900=black
+    
+    /* Font Style */
+    font-style: normal;                 // normal, italic
+    
+    /* Letter Spacing */
+    letter-spacing: normal;             // Tighter spacing (use 0.5px for looser)
+    
+    /* Line Height */
+    line-height: 1.2;                   // Spacing between lines if title wraps
+    
+    /* Text Transform */
+    text-transform: none;               // none, uppercase, lowercase, capitalize
+    
+    /* Color (optional override) */
+    // color: var(--global-theme-color); // Use theme color
+    
+    /* Additional spacing */
+    margin-bottom: 0.5rem;
+    
+    .font-weight-bold {
+      font-weight: 700;                 // Adjust bold weight for first name
+    }
+  }
+  
+  .desc {
+    /* Subtitle styling */
+    font-size: 1.2rem;
+    color: var(--global-text-color-light);
+    font-style: italic;
+  }
+}
+
+
+// About page profile content styling
+.post article {
+  
+  .clearfix {
+    /* Text Alignment */
+    text-align: left;              // left, center, right, justify
+    
+    /* Font Size */
+    font-size: 1rem;             // Default is ~1rem (16px)
+    
+    /* Font Family */
+    font-family: 'Roboto', sans-serif;  // Change font
+    // font-family: 'Georgia', serif;
+    // font-family: inherit;         // Use default
+    
+    /* Font Weight */
+    font-weight: 400;              // 300=light, 400=normal, 500=medium, 600=semibold
+    
+    /* Line Height (spacing between lines) */
+    line-height: 1.5;              // 1.5-2.0 for comfortable reading
+    
+    /* Letter Spacing */
+    letter-spacing: 0.3px;         // Slight spacing for readability
+    
+    /* Color */
+    color: var(--global-text-color);
+    // color: #333;                 // Custom color
+    
+    /* Paragraph Spacing */
+    p {
+      margin-bottom: 1rem;       // Space between paragraphs
+      text-align: left;            // Can override per paragraph
+    }
+    
+    /* Max Width for Readability */
+    max-width: 550px;            // Limit line length
+    margin-left: 0;
+    margin-right: auto;
+    margin-bottom: 6rem;         // Space below content
+  }
+}
+
+.hero-tagline {
+  font-size: 1.18rem;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 44rem;
+  margin-bottom: 2rem;
+}
+
 
 .post-list {
   margin: 0;
