@@ -145,4 +145,4 @@ In practice, these steps are rarely executed once. Researchers often:
 - respond to reviewer requests for alternative assumptions,
 - and document results in a reproducible way.
 
-To support this process, I implemented the same workflow in a Python notebook template, where each step maps directly to code cells and visual outputs.
+To support this process, I implemented the same workflow in a Python [notebook template](https://davidzhao1015.github.io/blog/2026/power-analysis-notebook/), where each step maps directly to code cells and visual outputs.
