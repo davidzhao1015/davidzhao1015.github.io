@@ -27,12 +27,18 @@ table {
   td,
   th {
     font-size: 1rem;
-    padding: 1px 1rem 1px 0;
+    padding: 0.25rem 1rem 0.25rem 0.1rem;
   }
 
   th {
     font-weight: bold;
   }
+}
+
+// Override Bootstrap table padding when pretty_table is enabled
+.table td,
+.table th {
+  padding: 0.25rem 1rem 0.25rem 0.25rem !important;  // Adjust these values as needed
 }
 
 a,

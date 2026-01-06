@@ -2,7 +2,7 @@
 layout: post
 title: "Power Analysis as a Workflow for Microbiome Data"
 date: 2026-01-03
-description:
+description: A practical workflow for study design, reviewer-ready assumptions, and reproducible power analysis
 tags: power-analysis, sample-size, microbiome-data
 categories:
 giscus_comments: false
