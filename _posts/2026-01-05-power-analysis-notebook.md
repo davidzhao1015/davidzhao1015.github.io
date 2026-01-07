@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Worked Example for Reproducible Power Analysis in Python
+title: Worked Example for Reproducible Power Analysis Workflow in Python
 date: 2026-01-05
 description: Power analysis for alpha diversity differences in Crohn's disease microbiome studies
 tags: power-analysis; Jupyter; Python; Evident
