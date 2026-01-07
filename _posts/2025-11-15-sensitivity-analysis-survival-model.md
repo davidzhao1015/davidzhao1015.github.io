@@ -17,9 +17,9 @@ In rare disease epidemiology, researchers often face a familiar challenge: most 
 
 This article presents a practical workflow for reconstructing that distribution using parametric survival models, with a focus on the generalized gamma distribution. We will also show how to incorporate parameter uncertainty using probabilistic sensitivity analysis (PSA) and how to compute key outputs such as diagnosis probabilities within specific age bands.
 
-This workflow is adapted from a full analysis [notebook](sen-analysis-Gamma-MVN-Cholesky.ipynb), and is intended to be immediately useful for epidemiologists, biostatisticians, and health economists working with sparse or aggregate-only datasets.<br><br>
+This workflow is adapted from a full analysis [notebook](sen-analysis-Gamma-MVN-Cholesky.ipynb), and is intended to be immediately useful for epidemiologists, biostatisticians, and health economists working with sparse or aggregate-only datasets.
 
-## 1. Why Parametric Survival Modeling Matters
+## Why Parametric Survival Modeling Matters
 
 When individual-level data are unavailable, modeling decisions become difficult:
 
@@ -29,13 +29,13 @@ When individual-level data are unavailable, modeling decisions become difficult:
 
 The answer is *yes*. Well-chosen parametric models—fit using a quantile-matching method—allow us to approximate the underlying distribution closely enough for epidemiological and health economic purposes.
 
-The approach also supports probabilistic uncertainty methods widely used in cost-effectiveness modeling.<br><br>
+The approach also supports probabilistic uncertainty methods widely used in cost-effectiveness modeling.
 
-## 2. Summary Data and Python Setup
+## Summary Data and Python Setup
 
-### 2.1 Summary Statistics Used
+### Summary Statistics Used
 
-The analysis uses the following literature-reported values.
+The analysis uses the following literature-reported values. These values provide a robust representation of the distribution’s central tendency and spread.
 
 | Statistic    | Value |
 |--------------|-------|
@@ -48,9 +48,7 @@ The analysis uses the following literature-reported values.
 | Sample Size  | 111   |
 
 
-<br>These values provide a robust representation of the distribution’s central tendency and spread.<br><br>
-
-### 2.2 Software Environment
+### Software Environment
 
 The full workflow uses:
 
@@ -60,11 +58,11 @@ The full workflow uses:
 - **statsmodels** for numerical Hessian estimation
 - **matplotlib** for visualization
 
-All version details are recorded to support reproducibility.<br><br>
+All version details are recorded to support reproducibility.
 
-## 3. Fitting Parametric Models from Summary Data
+## Fitting Parametric Models from Summary Data
 
-### 3.1 Why Use Parametric Distributions?
+### Why Use Parametric Distributions?
 
 Parametric survival distributions help us:
 
@@ -73,9 +71,9 @@ Parametric survival distributions help us:
 - Compute probabilities within arbitrary age bands
 - Implement Monte Carlo–based uncertainty quantification
 
-This is particularly valuable in rare disease research, where datasets are often small.<br><br>
+This is particularly valuable in rare disease research, where datasets are often small.
 
-### 3.2 Quantile Matching: Reconstructing the Distribution
+### Quantile Matching: Reconstructing the Distribution
 
 Because raw data are missing, we instead match:
 
@@ -99,11 +97,11 @@ def gengamma_objective(params):
         return np.inf
 ```
 
-This allows us to recover a plausible distribution consistent with the literature.<br><br>
+This allows us to recover a plausible distribution consistent with the literature.
 
-### 3.3 Why Generalized Gamma?
+### Why Generalized Gamma?
 
-While lognormal and Weibull are widely used, the **generalized gamma** provides:
+While lognormal and Weibull are widely used, the generalized gamma provides:
 
 - high flexibility in skewness
 - adjustable tail behavior
@@ -126,9 +124,7 @@ a_fit_gengamma, c_fit_gengamma, scale_fit_gengamma = result_gengamma.x
 | c        | 1.5835   |
 | scale    | 8.4092   |
 
-<br><br>
-
-### 3.4 Diagnostic Checks
+### Diagnostic Checks
 
 To validate the fit, we:
 
@@ -140,11 +136,11 @@ To validate the fit, we:
     {% include figure.liquid loading="eager" path="assets/img/survival_model_diagnostic_check.png" class="img-fluid rounded z-depth-1" %}
 </div>
 
-This confirms that the generalized gamma model aligns well with both the median and quartile anchors.<br><br>
+This confirms that the generalized gamma model aligns well with both the median and quartile anchors.
 
-## 4. Adding Uncertainty: Probabilistic Sensitivity Analysis (PSA)
+## Adding Uncertainty: Probabilistic Sensitivity Analysis (PSA)
 
-### 4.1 Why PSA?
+### Why PSA?
 
 Health economic and epidemiological models require not only point estimates but also credible intervals, especially when clinical evidence is sparse.
 
@@ -160,9 +156,9 @@ The conceptual procedures are as follows,
 4.	Generate random noise using MVN
 5.	Apply the Cholesky factor to preserve correlations
 6.	Compute the final random parameter draws
-7.	Use the sampled parameters in the survival model<br>
+7.	Use the sampled parameters in the survival model
 
-### 4.2 Building the Variance-Covariance Matrix
+### Building the Variance-Covariance Matrix
 
 We approximate the Hessian numerically at the parameter optimum. Inverting the Hessian yields the variance–covariance matrix of the parameter estimates. 
 
@@ -180,7 +176,6 @@ vcov = np.linalg.inv(H)
 |  c | -17.76 |   0.55 |    9.63 |
 |  scale | -315.06 |   9.63 | 169.34 |
 
-<br>
 This is a 3×3 variance-covariance matrix for the 3 fitted parameters of the generalized gamma distribution.
 
 Diagonal entries = variances of each parameter.  
@@ -196,19 +191,7 @@ Example:
 $$\mathrm{Cov}(a, \text{scale}) = -315.06$$
 
 
-<!-- <div style="
-  border-left: 4px solid #4A90E2;
-  padding: 12px 16px;
-  background: #f5f9ff;
-  border-radius: 4px;
-  margin: 16px 0;
-">
-
-</div> -->
-
-<br>
-
-### 4.3 Multivariate Normal Sampling
+### Multivariate Normal Sampling
 
 Using Cholesky decomposition, we sample thousands of parameter sets from a multivariate normal distribution:
 
@@ -227,7 +210,7 @@ Even though the fitted parameters $$(\mu, \log\sigma, Q)$$ are point estimates, 
 
 To reflect this, we sample parameters from a multivariate normal distribution centered at the MLE estimates with covariance equal to the Hessian-derived covariance matrix.
 
-Here’s what the code does:<br>
+Here’s what the code does:
 
 1.	standard_normal((5000,3))
 → generates 5,000 draws of independent noise, one for each parameter.  
@@ -242,15 +225,15 @@ This matrix converts independent noise into correlated noise with the correct va
 4.	theta_hat + ...
 → shifts the draws so they are centered at the fitted parameters.  
 
-The resulting theta_draws are 5,000 simulated sets of generalized gamma parameters that realistically reflect estimation uncertainty. These are used to visualize uncertainty in survival curves, median survival, RMST, or other model outputs.<br><br>
+The resulting theta_draws are 5,000 simulated sets of generalized gamma parameters that realistically reflect estimation uncertainty. These are used to visualize uncertainty in survival curves, median survival, RMST, or other model outputs.
 
-## 5. Estimating Age-Band Probabilities
+## Estimating Age-Band Probabilities
 
 For many models, we need to know the probability that onset occurs within:
 
-- **0–12 years**
-- **12–18 years**
-- **18+ years**
+- 0–12 years
+- 12–18 years
+- 18+ years
 
 Using the CDF from each Monte Carlo draw, we compute:
 
@@ -271,20 +254,20 @@ A summary table (across ~5,000 draws) includes:
 | 12–18    | 1.95%  | 9.41%  | 0.00%  | 0.00%           | 23.81%           |
 | 18+      | 95.38% | 18.45% | 100.00%| 9.54%           | 100.00%          |
 
-<br>The results show:
+The results show:
 
 - ~95% of onsets occur after age 18
 - 0–12 and 12–18 have wide uncertainty due to very low event frequency
 
-This output can be plugged directly into disease models.<br><br>
+This output can be plugged directly into disease models.
 
-## 6. Visualizing Uncertainty: CDF Ensembles
+## Visualizing Uncertainty: CDF Ensembles
 
 One of the most insightful plots overlays:
 
-- **Light gray curves**: thousands of CDFs generated from sampled parameters
-- **A blue line**: mean CDF across all Monte Carlo draws
-- **Red points**: empirical quartile anchors
+- Light gray curves: thousands of CDFs generated from sampled parameters
+- A blue line: mean CDF across all Monte Carlo draws
+- Red points: empirical quartile anchors
 
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.liquid loading="eager" path="assets/img/psa_diag_check.png" class="img-fluid rounded z-depth-1" %}
@@ -297,9 +280,9 @@ This reveals:
 - Minimal probability mass before ~20 years
 - A steep probability rise between 50–70 years
 
-The ensemble plot illustrates not just the best-fit curve, but the *range of plausible distributions* given uncertainty in the literature.<br><br>
+The ensemble plot illustrates not just the best-fit curve, but the *range of plausible distributions* given uncertainty in the literature.
 
-## 7. Ensuring Reproducibility
+## Ensuring Reproducibility
 
 Reproducibility is essential for transparent modeling, peer review, and regulatory or client submissions. 
 
@@ -308,9 +291,8 @@ At the end of the analysis, we record:
 - Python version
 - OS
 - NumPy, pandas, SciPy, statsmodels, matplotlib versions
-<br><br>
 
-## 8. Conclusion
+## Conclusion
 
 Even when individual-level data are unavailable, we can still reconstruct a meaningful, validated age-at-onset distribution using parametric survival models.
 

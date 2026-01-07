@@ -24,6 +24,8 @@ hr {
 }
 
 table {
+  margin-bottom: 1rem !important;  // Add this line to reduce space after tables
+
   td,
   th {
     font-size: 1rem;
@@ -61,6 +63,23 @@ table.table a {
     border: 1px solid var(--global-divider-color) !important;
   }
 }
+
+/* Tighten space below tables in posts */
+.post .post-content table { margin-bottom: 0.4rem; }
+
+/* Handle margin-collapsing: reduce top margin of the next block after a table */
+.post .post-content table + p,
+.post .post-content table + ul,
+.post .post-content table + ol,
+.post .post-content table + h2,
+.post .post-content table + h3,
+.post .post-content table + pre,
+.post .post-content table + div { margin-top: 0.3rem; }
+
+/* When pretty_table adds Bootstrap classes */
+.post .post-content .table,
+.post .post-content .table-responsive { margin-bottom: 0.4rem !important; }
+.post .post-content .table + * { margin-top: 0.3rem !important; }
 
 blockquote {
   background: var(--global-bg-color);
