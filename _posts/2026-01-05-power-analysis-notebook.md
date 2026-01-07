@@ -2,7 +2,7 @@
 layout: post
 title: Worked Example for Reproducible Power Analysis in Python
 date: 2026-01-05
-description: A step-by-step guide to conducting power analysis using Jupyter notebook
+description: Power analysis for alpha diversity differences in Crohn's disease microbiome studies
 tags: power-analysis; Jupyter; Python; Evident
 categories:
 giscus_comments: false
