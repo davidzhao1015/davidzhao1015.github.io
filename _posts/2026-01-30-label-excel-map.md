@@ -2,6 +2,7 @@
 layout: post
 title: "When Excel Maps Fall Short: A Pragmatic Labeling Solution for HEOR Analysts"
 date: 2026-01-30
+giscus_comments: true
 description:
 tags: 
 categories:
