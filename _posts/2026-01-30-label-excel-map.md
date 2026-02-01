@@ -6,7 +6,6 @@ giscus_comments: true
 description:
 tags: 
 categories:
-giscus_comments: false
 related_posts: false
 pretty_table: true
 published: true
