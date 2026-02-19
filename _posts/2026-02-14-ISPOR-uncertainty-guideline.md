@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What the ISPOR Uncertainty Guideline Changed in My Modeling Practice"
+title: "How the ISPOR Uncertainty Guideline Changed My Modeling Practice"
 date: 2026-02-14
 giscus_comments: true
 description: Translating principles into real-world HEOR implementation
