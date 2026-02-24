@@ -40,6 +40,15 @@ While this tool will continue to be developed and maintained iteratively, the fi
 
 Together, these features aim to reduce repetitive setup work, improve consistency across sheets, and make large Excel-based model engines easier to navigate, for both model developers and reviewers.
 
+<div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid 
+        loading="eager" path="assets/img/Screenshot_Auto_nav_maker.png" 
+        class="img-fluid rounded z-depth-1" 
+        width="700"
+        caption="Screenshot of the navigation menu interface, showing parameter controls and live preview"
+    %}
+</div>
+
 ## How to Use the Tool
 
 The navigation tool is designed to work seamlessly with almost any Excel workbook, and is particularly well suited for epidemiology and HEOR model engines. Because the VBA runs externally, you don’t need to copy or embed any code into your project workbook, keeping models clean and review-friendly.
