@@ -28,7 +28,7 @@ In this article, I demonstrate a simple and reusable workflow for creating a hea
 
 The example use case is based on symptom frequency across subtypes of an autoimmune disorder. The goal is to transform a complex data matrix (20 symptoms × 11 disease subtypes) into a visual representation that reveals patterns in clinical manifestations and potential similarities between subtypes.
 
-Once the workflow is set up, generating the heatmap requires only a few seconds and minimal coding.
+Once the workflow is set up, generating the heatmap requires only a few seconds and minimal coding. The re-usable [Excel template](https://github.com/davidzhao1015/heatmap-excel-template/blob/main/Heatmap.xlsx) provided with this guide includes an example dataset and ready-to-run Python scripts, allowing users to create publication-ready heatmaps with ease.
 
 
 ## Why Heatmaps Matter in Biomedical Data
