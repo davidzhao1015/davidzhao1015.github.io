@@ -21,7 +21,18 @@ This inconsistency is a major barrier for literature reviews, meta-analyses, and
 
 ## A Structured Solution with HPO
 
-The Human Phenotype Ontology (HPO) provides a standardized vocabulary for phenotypic abnormalities, widely used in genomics, clinical genetics, and rare disease studies. If free-text symptoms can be reliably mapped to HPO terms, researchers gain:
+The [Human Phenotype Ontology (HPO) ](https://hpo.jax.org/) provides a standardized vocabulary for phenotypic abnormalities, widely used in genomics, clinical genetics, and rare disease studies. 
+
+<div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid 
+        loading="eager" path="assets/img/HPO_homepage.png"
+        class="img-fluid rounded z-depth-1" 
+        width="700"
+        caption="The Human Phenotype Ontology (HPO) homepage"
+    %}
+</div>
+
+If free-text symptoms can be reliably mapped to HPO terms, researchers gain:
 
 - Consistency: every symptom linked to a unique ID.
 - Context: ontology hierarchy shows how terms relate.
