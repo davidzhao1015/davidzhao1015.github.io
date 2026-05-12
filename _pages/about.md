@@ -18,12 +18,10 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 <p class="hero-tagline">
-Helping researchers and early HEOR analysts turn microbiome and epidemiological data into defensible, decision-ready quantitative analysis.
+Translating complex health data into structured, decision-ready evidence.
 </p>
 
-I focus on study design, power analysis, uncertainty, and applied modeling in real-world biomedical research.
-Much of this work involves settings with complex, sparse, or imperfect biomedical data, where assumptions need to be made explicit and defensible.
+I am an interdisciplinary healthcare analytics professional specializing in epidemiology, health economics, evidence synthesis, and quantitative modeling. My work focuses on transforming complex biomedical and real-world data into structured, decision-ready insights for healthcare and biotech applications.
 
-This work is for people who care about transparent assumptions and reproducible workflows.
-It is not about black-box methods or one-click answers.
+With a background spanning microbiome science, rare disease epidemiology, and health analytics, I build reproducible analytical workflows, decision models, and evidence synthesis frameworks that support transparent and defensible healthcare research.
 
