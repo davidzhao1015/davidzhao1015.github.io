@@ -21,10 +21,6 @@ Synthesizing symptom evidence in rare diseases sounds straightforward in theory:
 
 In practice, however, symptom data are often fragmented, inconsistently reported, and difficult to harmonize across studies.
 
-Synthesizing symptom evidence in rare diseases sounds straightforward in theory: collect studies, extract data, and pool the results.
-
-In practice, however, symptom data are often fragmented, inconsistently reported, and difficult to harmonize across studies.
-
 Evidence synthesis plays an important role in comprehensively characterizing the burden of symptoms associated with a rare disease. By systematically integrating evidence from published literature, grey literature, and real-world data, researchers can obtain a clearer picture of how diseases manifest across patient populations.
 
 In several recent projects, I conducted extensive data collection and evidence synthesis on clinical manifestations and relapse patterns across multiple rare diseases. Through this work, I gained first-hand experience with the data challenges that frequently arise in rare disease research, as well as pragmatic strategies to address these pitfalls.
