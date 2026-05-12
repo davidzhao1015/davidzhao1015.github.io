@@ -109,7 +109,7 @@ To support analysts and researchers in developing a robust and practical data ex
 
 Data harmonization is a critically important step in minimizing inconsistencies and fragmentation in initially extracted data.
 
-For symptom coding, several high-quality ontology databases are available, including those specifically designed for phenotypic and symptom data, such as the Human Phenotype Ontology (HPO). These resources provide standardized terminology that can support consistent classification of symptoms across studies. In previous work, I also published an article describing an automated workflow in Python to process inconsistent symptom data and map them to standardized terms.
+For symptom coding, several high-quality ontology databases are available, including those specifically designed for phenotypic and symptom data, such as the [Human Phenotype Ontology (HPO)](https://hpo.jax.org/). These resources provide standardized terminology that can support consistent classification of symptoms across studies. In previous work, I also published an [article](https://davidzhao1015.github.io/blog/2025/map-hpo-symptom/) describing an automated workflow in Python to process inconsistent symptom data and map them to standardized terms.
 
 For symptom timing, the harmonization process can be more complex. In practice, analysts may benefit from developing a mini dictionary of commonly reported timing categories, such as prodromal phase, disease onset, acute phase, or chronic stage. These standardized timing categories can then be mapped to the verbatim timing descriptions initially extracted from the literature, enabling more consistent synthesis while preserving traceability to the original reports.
 
