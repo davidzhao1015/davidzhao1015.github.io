@@ -19,7 +19,7 @@ social: true # includes social icons at the bottom of the page
 Translating complex health data into structured, decision-ready evidence
 </p>
 
-I am an interdisciplinary healthcare analytics professional specializing in epidemiology, evidence synthesis, and quantitative modeling, and health economics. My work focuses on transforming complex biomedical and real-world data into structured, decision-ready insights for healthcare and biotech applications.
+I integrate epidemiology, evidence synthesis, quantitative modeling, and health economics to transform complex biomedical and real-world data into structured, decision-ready insights that drive impactful strategies for healthcare and biotech clients.
 
-With a background spanning microbiome science, rare disease epidemiology, and health analytics, I build reproducible analytical workflows, decision models, and evidence synthesis frameworks that support transparent and defensible healthcare research.
+Leveraging expertise in microbiome science, rare disease epidemiology, and health analytics, I bridge data sources to implement reproducible workflows, build decision models, and develop frameworks that enable transparent, defensible healthcare decisions.
 
