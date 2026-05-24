@@ -135,10 +135,12 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 blog_name: EpiBiome Analytics # blog_name will be displayed in your blog page
 blog_subtitle: >
-  Applied methods and defensible analysis for microbiome research and HEOR
+  A methodological thought leadership platform for healthcare analytics, evidence strategy, and defensible biomedical data science.
 blog_intro: >
-  This blog focuses on the practical side of applied biomedical data analysis, including study design, power analysis, uncertainty, and modeling workflows.<br>
-  Most posts are written with graduate students and early-career analysts in mind, and aim to make complex methods transparent, defensible, and reusable.
+ This blog focuses on practical analytical methods across epidemiology, evidence synthesis, uncertainty analysis, and quantitative modeling workflows.
+ </br>
+ The content is designed to make complex healthcare and biomedical analytics more transparent, reproducible, and decision-oriented for analysts, researchers, and healthcare professionals.
+ 
 
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
