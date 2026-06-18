@@ -117,7 +117,7 @@ To help my future self (and fellow modelers who share a principle-driven mindset
 
 Below are a few resources I’ve built and shared:
 
-#### Solution 1: Probability distribution inventory (blog article)
+#### Solution 1: Probability distribution inventory ([blog article](https://davidzhao1015.github.io/blog/2025/psa-tools/))
 
 A small yet practical reference tool with two core functions:
 
@@ -126,13 +126,13 @@ A small yet practical reference tool with two core functions:
 
 This helps move distribution choice from convention to justification.
 
-#### Solution 2: Step-by-step guide to implement PSA for fitted parameters in survival models (blog article)
+#### Solution 2: Step-by-step guide to implement PSA for fitted parameters in survival models ([blog article](https://davidzhao1015.github.io/blog/2025/sensitivity-analysis-survival-model/))
 
 An end-to-end Python workflow for conducting PSA on survival models. The guide translates advanced statistical concepts, such as multivariate normal sampling and Cholesky decomposition, into accessible explanations and reproducible code.
 
 My goal was to bridge the gap between statistical theory and the practical execution of modeling.
 
-#### Solution 3: Reusable tornado chart template in Excel (blog article)
+#### Solution 3: Reusable tornado chart template in Excel ([blog article](https://www.linkedin.com/pulse/how-create-tornado-chart-sensitivity-analysis-excel-practical-zhao-o1qaf/?trackingId=8gIUtuKLSJqBf6eWyyidHg%3D%3D))
 
 A structured, automation-friendly template for generating DSA tornado diagrams. Designed for clarity, reproducibility, and easy adaptation across projects.
 
