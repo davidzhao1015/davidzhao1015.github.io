@@ -138,7 +138,14 @@ Understanding necessary computational concepts (e.g., recall, precision, edge ca
 
 Continuing from this foundation, RAISE 2 states that developing an AI prompt is like building a machine learning model. Non-developers creating prompts may need to understand the RAISE 2 lifecycle to meet HTA guidelines.
 
-!Diagram_Lifecycle-AI-data-extraction.png
+<div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid 
+        loading="eager" path="assets/img/lifecycle-AI-data-extraction.png" 
+        class="img-fluid rounded z-depth-1" 
+        width="700"
+        caption="Lifecycle for building defensible AI data extraction workflows, adapted from RAISE 2 (NICE 2026)"
+    %}
+</div>
 
 **Phase 1: Scoping and stakeholder engagement**
 
@@ -213,9 +220,3 @@ AI complements, rather than replaces, human expertise. Experts oversee interpret
 - Lee, K., et al. (2024). SEETrials: Leveraging large language models for safety and efficacy extraction in oncology clinical trials. *Informatics in medicine unlocked*, *50*, 101589. https://doi.org/10.1016/j.imu.2024.101589
 - Fleurence, R. L., et al. (2025). ELEVATE-GenAI: Reporting Guidelines for the Use of Large Language Models in Health Economics and Outcomes Research: An ISPOR Working Group Report. *Value in health : the journal of the International Society for Pharmacoeconomics and Outcomes Research*, *28*(11), 1611–1625. https://doi.org/10.1016/j.jval.2025.06.018
 - Responsible use of AI in evidence SynthEsis (RAISE): recommendations and guidance. Open Science Framework.
-
-## AI-Assisted Workflow Disclosure
-
-The synthesis and interpretation of the referenced publications were supported by NotebookLM (Google) to facilitate literature review, thematic organization, and evidence synthesis. Visual illustrations and figures were generated using Gamma to enhance the communication of concepts and workflows.
-
-All interpretations, conclusions, and editorial decisions remain the author's responsibility.
