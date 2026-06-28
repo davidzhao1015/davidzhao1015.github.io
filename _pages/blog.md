@@ -5,15 +5,7 @@ title: blog
 nav: true
 nav_order: 1
 pagination:
-  enabled: true
-  collection: posts
-  permalink: /page/:num/
-  per_page: 5
-  sort_field: date
-  sort_reverse: true
-  trail:
-    before: 1 # The number of links before the current page
-    after: 3 # The number of links after the current page
+  enabled: false
 ---
 
 <div class="post">
@@ -55,9 +47,11 @@ pagination:
   </div>
 {% endif %}
 
+<!-- Featured Posts Section (optional) -->
 {% assign featured_posts = site.posts | where: "featured", "true" %}
 {% if featured_posts.size > 0 %}
 <br>
+<h2 class="section-heading">Featured Posts</h2>
 <div class="container featured-posts">
   {% assign is_even = featured_posts.size | modulo: 2 %}
   <div class="row row-cols-{% if featured_posts.size <= 2 or is_even == 0 %}2{% else %}3{% endif %}">
@@ -99,83 +93,68 @@ pagination:
 <hr>
 {% endif %}
 
-<!-- Category Cards with Post Lists -->
-<div class="container category-cards">
-  <div class="row">
-    {% comment %}Get all unique categories from posts{% endcomment %}
-    {% assign all_categories = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
-    
-    {% for category in all_categories %}
-      {% if category != '' %}
-        {% comment %}Get posts for this category{% endcomment %}
-        {% assign category_posts = site.posts | where_exp: "post", "post.categories contains category" | sort: 'date' | reverse %}
-        
-        <div class="col-12 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h2 class="card-title category-title">
-                <i class="fa-solid fa-tag"></i> {{ category | capitalize }}
-                <span class="badge bg-secondary">{{ category_posts.size }}</span>
-              </h2>
-              
-              <!-- Post list within card -->
-              <ul class="post-list-in-card">
-                {% for post in category_posts limit: 10 %}
-                  <li>
-                    <div class="post-item">
-                      <h4>
-                        {% if post.redirect == blank %}
-                          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                        {% elsif post.redirect contains '://' %}
-                          <a href="{{ post.redirect }}" target="_blank">
-                            {{ post.title }}
-                            <i class="fa-solid fa-external-link-alt fa-xs"></i>
-                          </a>
-                        {% else %}
-                          <a href="{{ post.redirect | relative_url }}">{{ post.title }}</a>
-                        {% endif %}
-                      </h4>
-                      
-                      {% if post.description %}
-                        <p class="post-description">{{ post.description }}</p>
-                      {% endif %}
-                      
-                      <p class="post-meta">
-                        {% if post.external_source == blank %}
-                          {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
-                        {% else %}
-                          {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
-                        {% endif %}
-                        
-                        <i class="fa-solid fa-clock"></i> {{ read_time }} min read
-                        &nbsp;&middot;&nbsp;
-                        <i class="fa-solid fa-calendar"></i> {{ post.date | date: '%B %d, %Y' }}
-                        
-                        {% if post.tags.size > 0 %}
-                          &nbsp;&middot;&nbsp;
-                          {% for tag in post.tags limit:3 %}
-                            <i class="fa-solid fa-hashtag"></i>{{ tag }}{% unless forloop.last %}, {% endunless %}
-                          {% endfor %}
-                        {% endif %}
-                      </p>
-                    </div>
-                  </li>
-                {% endfor %}
+<!-- Category Overview Cards -->
+<h2 class="section-heading">Explore by Category</h2>
+<div class="container category-overview-cards">
+  {% comment %}Get all unique categories from posts{% endcomment %}
+  {% assign all_categories = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+  
+  {% for category in all_categories %}
+    {% if category != '' %}
+      {% comment %}Get posts for this category{% endcomment %}
+      {% assign category_posts = site.posts | where_exp: "post", "post.categories contains category" | sort: 'date' | reverse %}
+      
+      <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}" class="category-card-link">
+        <div class="card category-overview-card hoverable mb-4">
+          <div class="row g-0">
+            <!-- Left side: Text content -->
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="category-card-title">
+                  <i class="fa-solid fa-tag"></i> {{ category | capitalize }}
+                  <span class="badge bg-secondary">{{ category_posts.size }} post{% if category_posts.size != 1 %}s{% endif %}</span>
+                </h3>
                 
-                {% if category_posts.size > 10 %}
-                  <li class="view-all">
-                    <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">
-                      <i class="fa-solid fa-arrow-right"></i> View all {{ category_posts.size }} posts in {{ category }}
-                    </a>
-                  </li>
-                {% endif %}
-              </ul>
+                <p class="category-description">
+                  {% if category_posts.size > 0 %}
+                    Discover {{ category_posts.size }} article{% if category_posts.size != 1 %}s{% endif %} covering topics like 
+                    {% assign recent_posts = category_posts | slice: 0, 3 %}
+                    {% for post in recent_posts %}
+                      <em>{{ post.title | truncate: 40 }}</em>{% if forloop.last %}.{% else %}, {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    Explore articles in this category.
+                  {% endif %}
+                </p>
+                
+                <div class="category-meta">
+                  <span class="recent-update">
+                    <i class="fa-solid fa-clock"></i> 
+                    Latest: {{ category_posts.first.date | date: '%B %d, %Y' }}
+                  </span>
+                </div>
+                
+                <div class="view-category-btn">
+                  <span>View all posts <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right side: Image -->
+            <div class="col-md-4">
+              <div class="category-image-wrapper">
+                {% comment %}Default placeholder image - can be customized per category{% endcomment %}
+                <div class="category-placeholder-image">
+                  <i class="fa-solid fa-layer-group fa-3x"></i>
+                  <p class="category-label">{{ category | upcase }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      {% endif %}
-    {% endfor %}
-  </div>
+      </a>
+    {% endif %}
+  {% endfor %}
 </div>
 
 </div>
