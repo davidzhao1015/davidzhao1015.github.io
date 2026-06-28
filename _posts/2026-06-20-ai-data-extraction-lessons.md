@@ -10,7 +10,7 @@ tags:
   - healthcare analytics
   - evidence synthesis
 categories: bioinformatics
-featured: true
+featured: false
 giscus_comments: true
 related_posts: false
 pretty_table: true
