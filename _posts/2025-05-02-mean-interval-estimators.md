@@ -4,7 +4,7 @@ title: "Evaluating Confidence Interval Methods under Skewness: Practical Insight
 date: 2025-05-02
 description: 
 tags: confidence-intervals, statistics, mean, methods-comparison
-categories: statistics
+categories: [Statistical Methods for Health Research]
 giscus_comments: false
 related_posts: false
 pretty_table: true  # this will enable the pretty table feature for this post.

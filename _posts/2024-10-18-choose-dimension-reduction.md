@@ -4,7 +4,7 @@ title: 'Choosing the Right Dimensionality Reduction in Metabolomics: Navigating 
 date: 2024-10-18 
 description: 
 tags: metabolomics, data-analysis, dimensionality-reduction 
-categories: statistics
+categories: [Bioinformatics & Computational Biology]
 giscus_comments: false
 related_posts: false
 published: true

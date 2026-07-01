@@ -4,7 +4,7 @@ title: "Retrieving Full Taxonomy Lineage from NCBI with Python"
 date: 2025-08-09
 description: 
 tags: taxonomy, microbiome, biopython, ncbi-api
-categories: bioinformatics
+categories: [Bioinformatics & Computational Biology]
 giscus_comments: false
 related_posts: false
 pretty_table: true

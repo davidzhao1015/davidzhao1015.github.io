@@ -4,7 +4,7 @@ title: 'How to Run R Code in Jupyter Notebook within VS Code: A Step-by-Step Gui
 date: 2024-11-14
 description: 
 tags: 
-categories: 
+categories: [Reproducible Healthcare Analytics]
 giscus_comments: false
 related_posts: false
 published: true

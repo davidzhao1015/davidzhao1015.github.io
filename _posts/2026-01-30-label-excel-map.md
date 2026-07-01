@@ -5,7 +5,7 @@ date: 2026-01-30
 giscus_comments: true
 description:
 tags: 
-categories:
+categories: [Reproducible Healthcare Analytics]
 related_posts: false
 pretty_table: true
 published: true

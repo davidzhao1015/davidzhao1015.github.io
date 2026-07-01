@@ -4,7 +4,7 @@ title: 'Introduction to Linear Mixed Models with the limma Package'
 date: 2024-10-23 
 description: 
 tags: data-analysis, limma, linear-mixed-models, gene-expression 
-categories: statistics
+categories: [Bioinformatics & Computational Biology]
 giscus_comments: false
 related_posts: false
 published: true

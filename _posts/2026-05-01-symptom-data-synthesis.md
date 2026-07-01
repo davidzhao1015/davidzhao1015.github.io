@@ -4,7 +4,7 @@ title: "Synthesizing Symptom Data in Rare Diseases: Pitfalls, Pragmatic Solution
 date: 2026-05-01
 description: Practical lessons and methodological considerations for synthesizing symptom data in rare diseases.
 tags: symptom-data, evidence-synthesis, rare-diseases, meta-analysis, data-harmonization
-categories: AI for Evidence Synthesis
+categories: [AI for Evidence Synthesis]
 giscus_comments: false
 related_posts: false
 pretty_table: true

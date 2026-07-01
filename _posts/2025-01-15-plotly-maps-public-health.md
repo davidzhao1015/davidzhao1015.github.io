@@ -4,6 +4,7 @@ title: "Beyond Heatmaps: Mapping Two Variables with Plotly in Public Health"
 date: 2025-01-27
 description: 
 tags: data-visualization; epidemiology; plolty; choropleth-map; fermented-food; COVID-19
+categories: [Reproducible Healthcare Analytics]
 giscus_comments: false
 related_posts: false
 published: true

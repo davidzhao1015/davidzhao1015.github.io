@@ -111,7 +111,7 @@ pagination:
             <div class="col-md-8">
               <div class="card-body">
                 <h3 class="category-card-title">
-                  <i class="fa-solid fa-tag"></i> {{ category | capitalize }}
+                  <i class="fa-solid fa-tag"></i> {{ category }}
                   <span class="badge bg-secondary">{{ category_posts.size }} post{% if category_posts.size != 1 %}s{% endif %}</span>
                 </h3>
                 

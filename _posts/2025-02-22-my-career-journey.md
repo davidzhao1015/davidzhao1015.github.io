@@ -4,7 +4,7 @@ title: "From Microbiology to Bioinformatics: How Embracing New Skills Transforme
 date: 2025-02-22
 description: 
 tags: bionformatics, microbiology, career-transition, learning-journey
-categories: [career development]
+categories: [Bioinformatics & Computational Biology]
 giscus_comments: false
 related_posts: false
 published: true

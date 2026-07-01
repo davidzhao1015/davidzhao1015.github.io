@@ -4,7 +4,7 @@ title: "A Beginner’s Hands-On Guide to Meta-Analysis and Confidence Intervals"
 date: 2025-06-16
 description: 
 tags: meta-analysis, R, microbiome
-categories: statistics
+categories: [Statistical Methods for Health Research]
 giscus_comments: false
 related_posts: false
 pretty_table: true  # this will enable the pretty table feature for this post.

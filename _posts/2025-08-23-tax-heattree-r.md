@@ -4,7 +4,7 @@ title: "Visualizing Microbiome Taxonomy with Metacoder in R: A Step-by-Step Guid
 date: 2025-08-23
 description:
 tags: taxonomy, microbiome, visualization
-categories: bioinformatics
+categories: [Bioinformatics & Computational Biology]
 giscus_comments: false
 related_posts: false
 pretty_table: true

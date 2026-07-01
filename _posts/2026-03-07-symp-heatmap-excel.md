@@ -4,7 +4,7 @@ title: "How to Draw Publication-Ready Heatmap with Dendrograms in Minutes Using 
 date: 2026-03-07
 description: A practical guide and re-usable Excel template
 tags: 
-categories:
+categories: [Reproducible Healthcare Analytics]
 giscus_comments: false
 related_posts: false
 pretty_table: true

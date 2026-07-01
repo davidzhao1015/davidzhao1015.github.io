@@ -4,7 +4,7 @@ title: How to Perform Power Analysis for High-Throughput Omics Data Using SSPA, 
 date: 2024-11-07 
 description: 
 tags: power-analysis; bioconductor; R; SSPA
-categories: statistics
+categories: [Bioinformatics & Computational Biology]
 giscus_comments: false
 related_posts: false
 published: true

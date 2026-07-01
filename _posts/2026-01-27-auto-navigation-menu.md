@@ -4,7 +4,7 @@ title: "Save Time in Excel: Automating Navigation Menus with VBA"
 date: 2026-01-27
 description: A practical VBA tool for cleaner, faster model engines
 tags: 
-categories:
+categories: [Reproducible Healthcare Analytics]
 giscus_comments: false
 related_posts: false
 pretty_table: true

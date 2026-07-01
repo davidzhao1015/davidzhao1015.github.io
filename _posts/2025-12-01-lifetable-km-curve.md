@@ -4,7 +4,7 @@ title: "How to Reconstruct a Kaplan–Meier Curve from a Published Life Table: A
 date: 2025-12-01
 description:
 tags: survival-analysis, evidence-synthesis, python, kaplan-meier, life-table
-categories: bioinformatics
+categories: [Rare Disease Evidence Generation]
 giscus_comments: false
 related_posts: false
 pretty_table: true

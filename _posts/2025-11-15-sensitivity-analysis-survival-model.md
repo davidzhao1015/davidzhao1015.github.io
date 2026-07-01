@@ -4,7 +4,7 @@ title: "Parametric Survival Fit & PSA for Age-at-Onset in Autoimmune Disease: Ge
 date: 2025-11-15
 description:
 tags: sensitivity-analysis, survival-model, epi, health-economy
-categories: bioinformatics
+categories: [HEOR & Decision Modeling]
 giscus_comments: false
 related_posts: false
 pretty_table: true

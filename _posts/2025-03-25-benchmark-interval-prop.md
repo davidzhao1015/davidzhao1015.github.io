@@ -4,7 +4,7 @@ title: "Comparing Methods for Estimating 95% Confidence Intervals of Proportions
 date: 2025-04-01
 description: 
 tags: confidence-intervals, statistics, proportions, methods-comparison
-categories: statistics
+categories: [Statistical Methods for Health Research]
 giscus_comments: false
 related_posts: false
 pretty_table: true  # this will enable the pretty table feature for this post.
