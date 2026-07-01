@@ -9,7 +9,7 @@ tags:
     - Markov transition models
     - hazard ratios
     - cost-effectiveness analysis
-categories: statistics
+categories: HEOR & Decision Modeling
 featured: false
 giscus_comments: true
 related_posts: false
@@ -349,16 +349,6 @@ To address this, analysts can apply sensitivity analysis to factors such as
 - Expand the input structure to include age-specific hazard ratios, rather than relying solely on transitions. With this expansion, we can reduce uncertainty by using consistent hazard ratios across ages and avoid overly optimistic modeling results.
 - Integrate general population morality adjustment.
 - Enhance the template’s flexibility to accommodate arbitrary numbers of health states beyond the fixed four in the use case.
-
-## Reusable templates in Excel
-
-To support your work, I developed a reusable Excel template. Feel free to explore and adapt them to enhance your projects.
-
-This blog article can serve as an introductory guide to using and interpreting the templates, with the necessary documentation embedded in them. Whether you’re a beginner or an experienced analyst, the lightweight template is accessible and adaptable to your skill level, making it worth checking out.
-
-We welcome your feedback and comments on the post and templates.
-
-Your input will help us improve these tools together, benefiting more model analysts in HEOR, epidemiology, and evidence generation.
 
 ## References
 
