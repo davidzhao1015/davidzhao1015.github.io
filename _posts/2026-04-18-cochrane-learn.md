@@ -4,7 +4,7 @@ title: "Key Lessons from Cochrane Evidence Essentials for Evidence Synthesis"
 date: 2026-04-18
 description: Key insights and practical tips from the Cochrane Evidence Essentials course for conducting high-quality evidence synthesis
 tags: Cochrane, Evidence-synthesis, Systematic-review, Meta-analysis, CASP, GRADE
-categories: [Rare Disease Evidence Generation]
+categories: [Rare Disease Epidemiology]
 giscus_comments: false
 related_posts: false
 pretty_table: true

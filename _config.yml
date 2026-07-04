@@ -340,7 +340,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: [] # these tags will be displayed on the front page of your blog
-display_categories: ["Bioinformatics & Computational Biology", "Statistical Methods for Health Research", "Reproducible Healthcare Analytics", "HEOR & Decision Modeling", "Rare Disease Evidence Generation", "AI for Evidence Synthesis"]
+display_categories: ["Bioinformatics & Computational Biology", "Statistical Methods for Health Research", "Reproducible Healthcare Analytics", "HEOR Decision Modeling", "Rare Disease Epidemiology", "AI-enabled Evidence Generation"]
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
 # -----------------------------------------------------------------------------

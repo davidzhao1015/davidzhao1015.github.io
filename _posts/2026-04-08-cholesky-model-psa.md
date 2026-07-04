@@ -4,7 +4,7 @@ title: "How to Model Correlated Parameter Uncertainty in Excel Using Cholesky De
 date: 2026-04-08
 description: A practical guide and template to performing probabilistic sensitivity analysis (PSA) for model parameters with covariance structure in Excel
 tags: PSA, Cholesky-decomposition, Excel-modeling, health-economics, epidemiology
-categories: [HEOR & Decision Modeling]
+categories: [HEOR Decision Modeling]
 giscus_comments: false
 related_posts: false
 pretty_table: true

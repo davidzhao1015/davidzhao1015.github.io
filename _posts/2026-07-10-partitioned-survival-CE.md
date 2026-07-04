@@ -9,7 +9,7 @@ tags:
     - Markov transition models
     - hazard ratios
     - cost-effectiveness analysis
-categories: [HEOR & Decision Modeling]
+categories: [HEOR Decision Modeling]
 featured: false
 giscus_comments: true
 related_posts: false

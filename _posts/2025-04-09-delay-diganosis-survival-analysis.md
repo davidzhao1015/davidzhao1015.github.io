@@ -4,7 +4,7 @@ title: "Modeling Diagnostic Delays in Rare Disease: A Survival Analysis Case Stu
 date: 2025-03-03
 description: 
 tags: survival-analysis; rare-disease; ASMD; python
-categories: [Rare Disease Evidence Generation]
+categories: [Rare Disease Epidemiology]
 giscus_comments: false
 related_posts: false
 pretty_table: true  # this will enable the pretty table feature for this post.

@@ -4,7 +4,7 @@ title: "How to Reconstruct Disease Onset Age Distributions Using Summary Statist
 date: 2025-07-09
 description: 
 tags: age-at-onset, distribution, rare-disease, python
-categories: [Rare Disease Evidence Generation]
+categories: [Rare Disease Epidemiology]
 giscus_comments: false
 related_posts: false
 pretty_table: true  # this will enable the pretty table feature for this post.

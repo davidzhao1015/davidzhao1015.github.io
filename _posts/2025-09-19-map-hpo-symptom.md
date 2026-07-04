@@ -4,7 +4,7 @@ title: "Turning Messy Symptom Text into Structured Insights"
 date: 2025-09-19
 description:
 tags: epi, meta-analysis, ontology, rare-disease
-categories: [AI for Evidence Synthesis]
+categories: [AI-enabled Evidence Generation]
 giscus_comments: false
 related_posts: false
 pretty_table: true

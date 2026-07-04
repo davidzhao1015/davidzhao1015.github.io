@@ -9,7 +9,7 @@ tags:
   - HEOR
   - healthcare analytics
   - evidence synthesis
-categories: [AI for Evidence Synthesis]
+categories: [AI-enabled Evidence Generation]
 featured: false
 giscus_comments: true
 related_posts: false

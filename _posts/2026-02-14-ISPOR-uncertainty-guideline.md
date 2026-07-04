@@ -5,7 +5,7 @@ date: 2026-02-14
 giscus_comments: true
 description: Translating principles into real-world HEOR implementation
 tags: 
-categories: [HEOR & Decision Modeling]
+categories: [HEOR Decision Modeling]
 related_posts: false
 pretty_table: true
 published: true
