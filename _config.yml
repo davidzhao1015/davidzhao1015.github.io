@@ -136,7 +136,7 @@ blog_subtitle: >
   A methodological thought leadership platform for healthcare analytics, evidence strategy, and defensible biomedical data science.
 blog_intro: >
  This blog focuses on practical analytical methods across epidemiology, evidence synthesis, uncertainty analysis, and quantitative modeling workflows.
- </br>
+ <br>
  The content is designed to make complex healthcare and biomedical analytics more transparent, reproducible, and decision-oriented for analysts, researchers, and healthcare professionals.
  
 
@@ -340,7 +340,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: [] # these tags will be displayed on the front page of your blog
-display_categories: ["Bioinformatics & Computational Biology", "Statistical Methods for Health Research", "Reproducible Healthcare Analytics", "HEOR Decision Modeling", "Rare Disease Epidemiology", "AI-enabled Evidence Generation"]
+display_categories: ["Rare Disease Epidemiology", "HEOR Decision Modeling", "AI-enabled Evidence Generation", "Bioinformatics & Computational Biology", "Reproducible Healthcare Analytics", "Statistical Methods for Health Research"]
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
 # -----------------------------------------------------------------------------

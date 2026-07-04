@@ -96,8 +96,8 @@ pagination:
 <!-- Category Overview Cards -->
 <h2 class="section-heading">Explore by Category</h2>
 <div class="container category-overview-cards">
-  {% comment %}Get all unique categories from posts{% endcomment %}
-  {% assign all_categories = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+  {% comment %}Use display_categories from config to maintain custom order{% endcomment %}
+  {% assign all_categories = site.display_categories %}
   
   {% for category in all_categories %}
     {% if category != '' %}
