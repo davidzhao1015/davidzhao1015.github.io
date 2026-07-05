@@ -116,7 +116,9 @@ pagination:
                 </h3>
                 
                 <p class="category-description">
-                  {% if category_posts.size > 0 %}
+                  {% if site.data.category_descriptions[category] %}
+                    {{ site.data.category_descriptions[category].description }}
+                  {% elsif category_posts.size > 0 %}
                     Discover {{ category_posts.size }} article{% if category_posts.size != 1 %}s{% endif %} covering topics like 
                     {% assign recent_posts = category_posts | slice: 0, 3 %}
                     {% for post in recent_posts %}
