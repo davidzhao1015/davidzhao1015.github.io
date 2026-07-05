@@ -24,6 +24,13 @@ $pink-color: #f92080 !default;
 $pink-color-light: #ffdddd !default;
 $yellow-color: #efcc00 !default;
 
+// Custom color palette
+$primary-color: #184E9E !default;
+$secondary-color: #2E74C9 !default;
+$accent-color: #21B6B7 !default;
+$custom-bg-color: #F8FAFC !default;
+$custom-text-color: #163A5F !default;
+
 $grey-color: #828282 !default;
 $grey-color-light: color.adjust($grey-color, $lightness: 40%);
 $grey-color-dark: #1c1c1d;
