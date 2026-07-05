@@ -1,17 +1,17 @@
 "Rare Disease Epidemiology":
-  description: "Epidemiological methods and analytics for rare diseases, including prevalence estimation, diagnostic delays, and survival analysis."
+  description: "Insights into disease burden, natural history, patient populations, and epidemiological evidence that inform rare disease research and drug development."
 
 "HEOR Decision Modeling":
-  description: "Health economic evaluation, cost-effectiveness analysis, budget impact models, and uncertainty quantification in decision science."
+  description: "Health economic models, uncertainty analysis, and HTA decision-making."
 
 "AI-enabled Evidence Generation":
-  description: "AI and machine learning applications in evidence synthesis, data extraction, and systematic review automation."
+  description: "Trustworthy AI workflows for evidence extraction and systematic knowledge synthesis."
 
 "Bioinformatics & Computational Biology":
-  description: "Computational methods for biological data analysis, genomics, and molecular biology research."
+  description: "Computational tools and biological data analysis for modern biomedical research."
 
 "Reproducible Healthcare Analytics":
-  description: "Best practices for reproducible research, workflow automation, and transparent analytical methods in healthcare."
+  description: "Transparent, automated, and reproducible analytical workflows for healthcare research."
 
 "Statistical Methods for Health Research":
-  description: "Statistical techniques and methodologies for clinical research, observational studies, and healthcare data analysis."
+  description: "Statistical concepts and practical methods for clinical and health outcomes research."
