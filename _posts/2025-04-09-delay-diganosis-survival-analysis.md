@@ -3,7 +3,7 @@ layout: post
 title: "Modeling Diagnostic Delays in Rare Disease: A Survival Analysis Case Study in Python"
 date: 2025-03-03
 description: 
-tags: survival-analysis; rare-disease; ASMD; python
+tags: survival-analysis, rare-disease, ASMD, python
 categories: [Rare Disease Epidemiology]
 giscus_comments: false
 related_posts: false

@@ -3,7 +3,7 @@ layout: post
 title: 'Automating Reporting with RMarkdown'
 date: 2024-11-01 
 description: 
-tags: rmarkdown; automation; tutorial
+tags: rmarkdown, automation, tutorial
 categories: [Reproducible Healthcare Analytics]
 giscus_comments: false
 related_posts: false

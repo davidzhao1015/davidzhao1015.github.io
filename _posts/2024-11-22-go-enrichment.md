@@ -3,7 +3,7 @@ layout: post
 title: 'Top R Packages for GO Enrichment Analysis: topGO vs globaltest Explained' 
 date: 2024-11-22 
 description: 
-tags: bioconductor; R; topGO; globaltest; gene-ontology; enrichment-analysis
+tags: bioconductor, R, topGO, globaltest, gene-ontology, enrichment-analysis
 categories: [Bioinformatics & Computational Biology]
 giscus_comments: false
 related_posts: false
