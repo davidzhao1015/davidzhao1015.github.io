@@ -33,7 +33,8 @@ on:
       - master
       - main
     paths:
-      - "assets/**"      - "_sass/**"      - "_sass/**"
+      - "assets/**"      
+      - "_sass/**"      
       - "**.bib"
       - "**.html"
       - "**.js"
