@@ -9,6 +9,7 @@ profile:
   image: profile-pic-real.png
   image_circular: true # crops the image to make it circular
   more_info: >
+    <p>Xin (David) Zhao, PhD</p>
     <p>Health Analytics & HEOR Consultant</p>
 
 news: false # includes a list of news items
