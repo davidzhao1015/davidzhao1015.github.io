@@ -219,6 +219,7 @@ ul.task-list input[type="checkbox"] {
 
 .profile {
   width: 100%;
+  margin-top: -25px;  // Move profile photo upward for better alignment
 
   .more-info {
     margin-bottom: 5px;
@@ -644,7 +645,7 @@ footer.sticky-bottom {
 
   .post-title {
     /* Font Size */
-    font-size: 1.0625rem;                  // 17px
+    font-size: 1.8 rem;                  // 17px
     
     /* Font Family */
     font-family: 'Roboto Slab', serif;  // Options below
@@ -665,7 +666,7 @@ footer.sticky-bottom {
     line-height: 1.2;                   // Spacing between lines if title wraps
 
     /* Spacing Below Title */
-    margin-bottom: 1.8rem;                // Add ~16px spacing after subtitle
+    margin-bottom: 2.5rem;                // Add ~16px spacing after subtitle
     
     /* Text Transform */
     text-transform: none;               // none, uppercase, lowercase, capitalize
