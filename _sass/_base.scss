@@ -657,6 +657,9 @@ footer.sticky-bottom {
     
     /* Line Height */
     line-height: 1.2;                   // Spacing between lines if title wraps
+
+    /* Spacing Below Title */
+    margin-bottom: 1rem;                // Add ~16px spacing after subtitle
     
     /* Text Transform */
     text-transform: none;               // none, uppercase, lowercase, capitalize
