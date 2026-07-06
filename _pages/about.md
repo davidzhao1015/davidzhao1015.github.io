@@ -16,7 +16,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 <p class="hero-tagline">
-Translating complex health data into structured, decision-ready evidence
+Translating complex health data into decision-ready evidence
 </p>
 
 I integrate epidemiology, evidence synthesis, quantitative modeling, and health economics to transform complex biomedical and real-world data into structured, decision-ready insights that drive impactful strategies for healthcare and biotech clients.
