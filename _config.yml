@@ -134,9 +134,9 @@ blog_name: EpiBiome Analytics # blog_name will be displayed in your blog page
 blog_subtitle: >
   Insights, methods, and practical frameworks for healthcare analytics, evidence strategy, and decision modeling.
 blog_intro: >
- This blog focuses on practical analytical methods across epidemiology, evidence synthesis, uncertainty analysis, and quantitative modeling workflows.
+ This blog shares practical methods, frameworks, and workflows for epidemiology, evidence synthesis, uncertainty analysis, and quantitative modeling.
  <br>
- The content is designed to make complex healthcare and biomedical analytics more transparent, reproducible, and decision-oriented for analysts, researchers, and healthcare professionals.
+ The content helps analysts, researchers, and healthcare professionals build transparent, reproducible, and defensible evidence to support better healthcare decisions.
  
 
 permalink: /blog/:year/:title/
