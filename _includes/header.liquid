@@ -2,7 +2,9 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      {% if page.permalink != '/'%}
+      {% comment %}
+Title hidden from navbar on all pages per user request
+{% if page.permalink != '/'%}
         <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
           {% if site.title == 'blank' %}
             {% if site.first_name %}
@@ -32,6 +34,7 @@
         <!-- Social Icons -->
         <div class="navbar-brand social">{% include social.liquid %}</div>
       {% endif %}
+{% endcomment %}
       <!-- Navbar Toggle -->
       <button
         class="navbar-toggler collapsed ml-auto"
