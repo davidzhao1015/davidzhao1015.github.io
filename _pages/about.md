@@ -20,7 +20,7 @@ social: true # includes social icons at the bottom of the page
 Healthcare Analytics | HEOR | Rare Disease Epidemiology
 </p>
 
-I integrate epidemiology, evidence synthesis, quantitative modeling, and health economics to transform complex biomedical and real-world data into structured, decision-ready insights that drive impactful strategies for healthcare and biotech clients.
+I translate complex clinical and scientific evidence into decision-ready insights for healthcare and life sciences organizations. With a strong foundation in rare disease epidemiology, evidence generation, and analytics, I enable informed, confident decisions for stakeholders facing uncertainty.
 
-Leveraging expertise in microbiome science, rare disease epidemiology, and health analytics, I bridge data sources to implement reproducible workflows, build decision models, and develop frameworks that enable transparent, defensible healthcare decisions.
+My approach bridges science, analytics, and business. I am dedicated to transparent, efficient, and reproducible evidence-generation, helping organizations understand evidence strength, quantify uncertainty, and act with clarity.
 
