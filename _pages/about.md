@@ -6,7 +6,7 @@ subtitle:
 
 profile:
   align: right
-  image: profile-pic-real.png
+  image: Enhanced_Profile_DZ.png
   image_circular: true # crops the image to make it circular
   more_info: >
     <p>Xin (David) Zhao, PhD</p>
