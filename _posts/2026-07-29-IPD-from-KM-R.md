@@ -28,6 +28,8 @@ When IPD is unavailable, reconstructing it from published KM curves becomes an e
 
 This article introduces an R tool that enables analysts to reconstruct IPD from published KM curves using the algorithm developed by Guyot et al. (2021). This algorithm is recognized in the methodological guidance provided by the Decision Support Unit at Sheffield University, which supports the National Institute for Health and Care Excellence (NICE) Health Technology Assessment (HTA).
 
+For full R notebook accompanying this article, see the GitHub page: https://davidzhao1015.github.io/reconstruct-ipd-km/
+
 ## Required inputs before you begin
 
 ### Background for published Kaplan-Meier curves
