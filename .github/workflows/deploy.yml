@@ -8,6 +8,7 @@ on:
     paths:
       - "assets/**"
       - "apps/gene-therapy-model/**"
+      - "_plugins/**"
       - "_sass/**"
       - "**.bib"
       - "**.html"
@@ -37,6 +38,7 @@ on:
     paths:
       - "assets/**"      
       - "apps/gene-therapy-model/**"
+      - "_plugins/**"
       - "_sass/**"      
       - "**.bib"
       - "**.html"
