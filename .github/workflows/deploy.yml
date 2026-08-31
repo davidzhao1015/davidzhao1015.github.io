@@ -107,10 +107,6 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
-      - name: Add gene therapy case study to site
-        run: |
-          mkdir -p _site/projects/gene-therapy-model
-          cp -R apps/gene-therapy-model/out/. _site/projects/gene-therapy-model/
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
