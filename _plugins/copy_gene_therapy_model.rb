@@ -3,6 +3,10 @@
 require "fileutils"
 
 Jekyll::Hooks.register :site, :post_write do |site|
+  # The generated site is already fully processed. Prevent GitHub Pages from
+  # running Jekyll again and dropping Next.js's underscore-prefixed `_next` assets.
+  FileUtils.touch(File.join(site.dest, ".nojekyll"))
+
   export_dir = File.join(site.source, "apps", "gene-therapy-model", "out")
   export_index = File.join(export_dir, "index.html")
 
