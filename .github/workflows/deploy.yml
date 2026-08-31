@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - "assets/**"
+      - "apps/gene-therapy-model/**"
       - "_sass/**"
       - "**.bib"
       - "**.html"
@@ -35,6 +36,7 @@ on:
       - main
     paths:
       - "assets/**"      
+      - "apps/gene-therapy-model/**"
       - "_sass/**"      
       - "**.bib"
       - "**.html"
@@ -69,6 +71,21 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: apps/gene-therapy-model/pnpm-lock.yaml
+      - name: Build gene therapy case study
+        working-directory: apps/gene-therapy-model
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -90,6 +107,10 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
+      - name: Add gene therapy case study to site
+        run: |
+          mkdir -p _site/projects/gene-therapy-model
+          cp -R apps/gene-therapy-model/out/. _site/projects/gene-therapy-model/
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
