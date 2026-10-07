@@ -473,7 +473,7 @@ This forest plot compares the results of seven studies evaluating **gut microbio
 
 **4. Heterogeneity (Bottom Statistics)**
 
-- **I² = 20.6%**: Indicates **low to moderate heterogeneity**—i.e., some variation in effect sizes across studies, but not extreme.
+- **I² = 20.6% (0.0% to 64.0%)**: Indicates **low to moderate heterogeneity** yet with **considerable uncertainty** due to the wide confidence interval.
 - **p = 0.2723**: The test for heterogeneity is **not statistically significant**, meaning we **cannot reject** the idea that all studies may share one common effect size.
 
 **Summary Interpretation**
