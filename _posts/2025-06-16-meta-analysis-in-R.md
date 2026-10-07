@@ -60,9 +60,9 @@ Several estimators are available to compute τ², including:
 - **Restricted Maximum Likelihood (REML)** – more accurate in small samples.
 - **Paule–Mandel**, **Empirical Bayes**, etc.
 
-### 4. 95% Confidence Interval of the Pooled Effect
+### 4. 95% Confidence Interval and 95% Prediction Interval
 
-The **95% confidence interval (CI)** around the pooled effect size represents the uncertainty of the estimate — that is, the range in which the true effect is expected to lie 95% of the time.
+The **95% confidence interval (CI)** around the pooled effect size represents the uncertainty of the pooled estimate reflecting precision of the pooled effect, while the **95% prediction interval (PI)** provides a range in which the true effect of a new study is expected to lie 95% of the time, reflecting variations in effects across studies or settings.
 
 For **fixed-effect models**, the CI is narrower because only sampling error is considered.
 
@@ -360,9 +360,9 @@ weightmicrobiome_sdd = meta::metagen(TE = diversity_diff, # Study effect size
                                     data = microbiome_df, # Data frame containing statistical information
                                     common = TRUE, # Conduct fixed-effect model meta-analysis
                                     random = TRUE, # Conduct random-effect model meta-analysis                               
-                                    prediction = FALSE, # Not print prediction interval                               
+                                    prediction = TRUE, # Print prediction interval                               
                                     method.I2 = "Q", # Method used to estimate heterogeneity statistics I^2                               
-                                    method.tau = "DL", # DerSimonian-Laird estimator                               
+                                    method.tau = "REML", # Restricted Maximum Likelihood estimator                               
                                     method.tau.ci = "J", # Method by Jackson (2013)                               
                                     method.random.ci = "HK" # Method by Hartung and Knapp (2001a/b)                               
                                     )
@@ -392,34 +392,37 @@ summary(microbiome_sdd)
 ```
 
 ```r
-                          95%-CI           %W(common)  %W(random)
-Subramanian et al., 2014 (Bangladesh)   0.2600 [ 0.1193; 0.4007]    57.3       40.7
-Azad et al., 2015 (Canada)              0.3300 [ 0.0197; 0.6403]    11.8       15.7
-Bender et al., 2016 (Haiti)            -0.1100 [-0.7909; 0.5709]     2.4        4.0
-Wood et al., 2018 (South Africa)        0.3100 [-0.1281; 0.7481]     5.9        8.9
-Pannaraj et al., 2017 (USA(CA/FL))      0.3700 [ 0.0776; 0.6624]    13.3       17.1
-Sordillo et al., 2017 (USA(CA/MA/MO))   0.7700 [ 0.3837; 1.1563]     7.6       11.0
-Thompson et al., 2015 (USA(NC))         0.3000 [-0.5308; 1.1308]     1.6        2.7
+                                                        95% CI %W(common)  %W(random)
+Subramanian et al., 2014 (Bangladesh)  0.2600 [ 0.1193; 0.4007]       57.3       43.9
+Azad et al., 2015 (Canada)             0.3300 [ 0.0197; 0.6403]       11.8       15.0
+Bender et al., 2016 (Haiti)           -0.1100 [-0.7909; 0.5709]        2.4        3.6
+Wood et al., 2018 (South Africa)       0.3100 [-0.1281; 0.7481]        5.9        8.2
+Pannaraj et al., 2017 (USA(CA/FL))     0.3700 [ 0.0776; 0.6624]       13.3       16.5
+Sordillo et al., 2017 (USA(CA/MA/MO))  0.7700 [ 0.3837; 1.1563]        7.6       10.3
+Thompson et al., 2015 (USA(NC))        0.3000 [-0.5308; 1.1308]        1.6        2.5
 
 Number of studies: k = 7
 
-                         95%-CI                   z|t     p-value
-Common effect model:     0.3162 [0.2097; 0.4227]   5.82   < 0.0001
-Random effects model:    0.3367 [0.1602; 0.5132]   4.67     0.0034
+                                           95% CI  z|t  p-value
+Common effect model       0.3162 [0.2097; 0.4227] 5.82 < 0.0001
+Random effects model (HK) 0.3330 [0.1617; 0.5042] 4.76   0.0031
+Prediction interval              [0.0917; 0.5743]              
 
-Quantifying heterogeneity (with 95%-CIs):
-tau^2 = 0.0073 [0.0000; 0.2032]; tau = 0.0855 [0.0000; 0.4508]
-I^2 = 20.6% [0.0%; 64.0%]; H = 1.12 [1.00; 1.67]
+Quantifying heterogeneity (with 95% CIs):
+ tau^2 = 0.0052 [0.0000; 0.2032]; tau = 0.0720 [0.0000; 0.4508]
+ I^2 = 20.6% [0.0%; 64.0%]; H = 1.12 [1.00; 1.67]
 
 Test of heterogeneity:
-Q = 7.56, df = 6, p-value = 0.2723
+    Q d.f. p-value
+ 7.56    6  0.2723
 
 Details of meta-analysis methods:
 - Inverse variance method
-- DerSimonian-Laird estimator for tau^2
-- Jackson method for CI of tau^2 and tau
-- I^2 calculation based on Q
+- Restricted maximum-likelihood estimator for tau^2
+- Jackson method for confidence interval of tau^2 and tau
+- Calculation of I^2 based on Q
 - Hartung-Knapp adjustment for random effects model (df = 6)
+- Prediction interval based on t-distribution (df = 6)
 ```
 
 ### Draw forest plot
@@ -438,7 +441,7 @@ dev.off()
 ```
 
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/forestplot.png" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/forestplot2.png" class="img-fluid rounded z-depth-1" %}
 </div>
 
 #### Interpret the Forest Plot
