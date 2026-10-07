@@ -504,3 +504,6 @@ This forest plot compares the results of seven studies evaluating **gut microbio
 
 - Perplexity research [report](https://www.perplexity.ai/search/introduce-step-to-step-guide-t-RFYI0pQZRvmm.9bK664ABg)
 - Doing meta-analysis in R [Chapter 3-6](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/)
+
+## Acknowledgments
+Special thanks to Dr. Steven Haken ([profile](https://www.linkedin.com/in/stevenhaken/)) for his thoughtful review and valuable feedback, which helped strengthen the article.
