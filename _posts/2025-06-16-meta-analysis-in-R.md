@@ -501,7 +501,6 @@ This forest plot compares the results of seven studies evaluating **gut microbio
 ---
 
 ## References
-
 - Doing meta-analysis in R [Chapter 3-6](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/)
 
 ## Acknowledgments
